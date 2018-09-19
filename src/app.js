@@ -6,6 +6,8 @@ const { siteRouter } = require("./controllers/site/site.route");
 const { adminRouter } = require("./controllers/admin/admin.route");
 const { infoRouter } = require("./controllers/admin/infor.route");
 
+// app.engine('.ejs', require('ejs').__express);
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.use(express.static("public"));

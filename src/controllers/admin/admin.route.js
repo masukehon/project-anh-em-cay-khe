@@ -4,7 +4,7 @@ const { EmployeeService } = require("../../services/employee.service");
 const adminRouter = Router();
 
 adminRouter.get('/', (req, res, next) => {
-    res.send('admin.ok');
+    res.render('index');
 });
 
 adminRouter.post('/signup',(req, res, next) => {
