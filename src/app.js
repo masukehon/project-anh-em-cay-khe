@@ -5,6 +5,7 @@ const app = express();
 const { siteRouter } = require("./controllers/site/site.route");
 const { adminRouter } = require("./controllers/admin/admin.route");
 const { infoRouter } = require("./controllers/admin/infor.route");
+const { orderRouter } = require("./controllers/admin/order.route");
 
 // app.engine('.ejs', require('ejs').__express);
 // app.set('views', __dirname + '/views');
@@ -21,6 +22,7 @@ app.use((req,res,next)=>{
 
 app.use(siteRouter);
 app.use('/admin/infor',infoRouter);
+app.use('/admin/order',orderRouter);
 app.use('/admin',adminRouter);
 
 module.exports = {app};

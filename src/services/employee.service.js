@@ -19,13 +19,16 @@ class EmployeeService {
         if (!employee)
             throw new ServerError("USER_INFO_INVALID",404);
         const checkPass = await compare(password, employee.password);
+        
         if(!checkPass)
             throw new ServerError("USER_INFO_INVALID",404);
         const token = await sign(employee)
         .catch(error => new ServerError("TOKEN_ERROR",500));
+
         employee.token = token;
         return employee;
     }
+
     static async Update(name, email, password) {
 
     }
