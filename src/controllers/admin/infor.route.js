@@ -10,28 +10,29 @@ const infoRouter = Router();
 
 infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
-    .then(info => res.status(200).send({success:true, info}))
+    .then(infor =>{
+      // res.status(200).send({success:true, info});
+      res.redirect('admin/infor', {infor, page: "inforUpdate"});
+    })
     .catch(res.onError);
 });
 
 infoRouter.get('/',(req,res,next)=>{
-  InformationService.Get().then(infor => {     
-      res.render('admin/master', { infor, page: "inforUpdate" });
-  })
-  .catch(res.onError)
+  InformationService.Get()
+  .then(infor=> res.render('admin/master', {infor, page: "inforUpdate"}))
+  .catch(res.onError);
 });
-
 
 infoRouter.get('/get',(req,res,next)=>{
   InformationService.Get()
   .then(infor=> res.render("admin/test",{infor}))
-  .catch(res.onError)
+  .catch(res.onError);
 });
 
 infoRouter.get('/',(req,res,next)=>{
   InformationService.Get()
   .then(infor=> res.send({success:true, infor}))
-  .catch(res.onError)
+  .catch(res.onError);
 });
 
 
