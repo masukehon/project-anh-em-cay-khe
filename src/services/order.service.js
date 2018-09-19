@@ -14,7 +14,7 @@ class OrderService {
         const order = await Order.findById( _id);
         if(!order) throw new ServerError("ORDER_NOT_FOUND",404);
 
-        //khi lần đầu nhân viên xem order này sẽ update isSeen
+        //khi lần đầu nhân viên xem, order này sẽ update isSeen
         if(!order.isSeen) {
             order.isSeen = true;
             return order.save();

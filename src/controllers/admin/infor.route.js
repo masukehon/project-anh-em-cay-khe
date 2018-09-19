@@ -12,7 +12,9 @@ infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
     .then(infor =>{
       // res.status(200).send({success:true, info});
-      res.redirect('admin/infor', {infor, page: "inforUpdate"});
+      // res.redirect('admin/infor', {infor, page: "inforUpdate"});
+      backURL= req.header('Referer') || '/';
+      res.redirect(backURL);
     })
     .catch(res.onError);
 });
@@ -23,17 +25,17 @@ infoRouter.get('/',(req,res,next)=>{
   .catch(res.onError);
 });
 
-infoRouter.get('/get',(req,res,next)=>{
-  InformationService.Get()
-  .then(infor=> res.render("admin/test",{infor}))
-  .catch(res.onError);
-});
+// infoRouter.get('/get',(req,res,next)=>{
+//   InformationService.Get()
+//   .then(infor=> res.render("admin/test",{infor}))
+//   .catch(res.onError);
+// });
 
-infoRouter.get('/',(req,res,next)=>{
-  InformationService.Get()
-  .then(infor=> res.send({success:true, infor}))
-  .catch(res.onError);
-});
+// infoRouter.get('/',(req,res,next)=>{
+//   InformationService.Get()
+//   .then(infor=> res.send({success:true, infor}))
+//   .catch(res.onError);
+// });
 
 
 module.exports = {infoRouter};

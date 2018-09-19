@@ -5,12 +5,12 @@ const { sign } = require("../helpers/jwt");
 
 class EmployeeService {
 
-    static async SignUp(name, email, password) {
+    static async SignUp(name, email, password, address, phone) {
         const employee = await Employee.findOne({email});
         if (employee)
             throw new ServerError("EMAIL_EXISTED",400);
         let passHashed = await hash(password, 8);
-        const newEmployee = new Employee({name, email, password: passHashed});
+        const newEmployee = new Employee({name, email, address, phone, password: passHashed});
         return newEmployee.save();
     }
 
