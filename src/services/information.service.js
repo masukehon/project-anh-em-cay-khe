@@ -16,23 +16,35 @@ class InformationService {
     //     return Info;
     // }
 
-    static async Update(hotline, facebook, instagarm, address, email, banner, centerImage) {
+    static async Update(req, res) {
         const fieldsConfig = [
                     { name: "banner", maxCount: 1 },
                     { name: "centerImage", maxCount: 1 }
                 ];
-        upload.fields(fieldsConfig)(req,res, error => {
-            if(error)
-                throw new ServerError("UPLOAD_IMAGE_ERROR",400);
-            const {hotline, facebook, instagarm, address, email} = req.body;
-            const images = req.files.filename;
-            const infor = new Information({hotline, facebook, instagarm, address,email, images});
-            return infor.save();
+            upload.fields(fieldsConfig)(req, res, async error =>  {
+                if(error)
+                    throw new ServerError("UPLOAD_IMAGE_ERROR",400);
+
+                const {hotline, facebook, instagram, address, email} = req.body;
+                if(req.files) {
+                    const data = {hotline, facebook, instagram, address, email};
+                    const { banner, centerImage } = req.files;
+                    
+                    if(banner)
+                        data.banner = banner[0].filename;
+                    if(centerImage)
+                        data.centerImage = centerImage[0].filename;
+
+                    return Information.findOneAndUpdate({}, data, { new: true });
+                }
+                else {
+                    const data = {hotline, facebook, instagram, address, email};
+                    return Information.findOneAndUpdate({}, data, { new: true });
+                }
         });
     }
     static async Get() {
-        const infor=await Information.findOne({});
-        return infor;
+        return Information.findOne({});
     }
 }
 

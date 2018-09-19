@@ -8,15 +8,23 @@ const infoRouter = Router();
 //     .catch(res.onError);
 // });
 
-infoRouter.put('/update', (req, res, next) => {
-    InformationService.Update()
+infoRouter.post('/update', (req, res, next) => {
+    InformationService.Update(req,res)
     .then(info => res.status(200).send({success:true, info}))
     .catch(res.onError);
 });
+
 infoRouter.get('/get',(req,res,next)=>{
+  InformationService.Get()
+  .then(infor=> res.render("admin/test",{infor}))
+  .catch(err=>console.log(err))
+});
+
+infoRouter.get('/',(req,res,next)=>{
   InformationService.Get()
   .then(infor=> res.send({success:true, infor}))
   .catch(err=>console.log(err))
 });
+
 
 module.exports = {infoRouter};
