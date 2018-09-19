@@ -34,7 +34,7 @@ class InformationService {
                         data.banner = banner[0].filename;
                     if(centerImage)
                         data.centerImage = centerImage[0].filename;
-
+                        
                     return Information.findOneAndUpdate({}, data, { new: true });
                 }
                 else {
@@ -44,7 +44,7 @@ class InformationService {
         });
     }
     static async Get() {
-        return Information.findOne({});
+        return Information.findOne({});   
     }
 }
 
