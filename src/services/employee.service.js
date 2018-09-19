@@ -26,7 +26,7 @@ class EmployeeService {
         employee.token = token;
         return employee;
     }
-    static async Update() {
+    static async Update(name, email, password) {
 
     }
 }

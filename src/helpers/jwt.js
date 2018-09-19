@@ -24,4 +24,14 @@ function verify(token) {
     });
 }
 
+function getToken() {
+    return `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+    eyJfaWQiOiI1YmExZjE0MjE5NThlYjE5NTBlZTNjMGEiLCJuYW1l
+    IjoiQ2FvIFZpbmggS2hhIiwiZW1haWwiOiJtYXN1a2U5NkBnbWFp
+    bC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCRtSFl3Wkc2a0t1MzVC
+    ekxYZHdxOW1PSmR6QXRRMDF6bUp3MWlqZWNwd2pBYU5qYkJoNFBQ
+    LiIsIl9fdiI6MCwiaWF0IjoxNTM3MzQwMjM3LCJleHAiOjE1Mzc1
+    MTMwMzd9.x6DWQtqKmSy7_caoVvNVA0XDnjq1zrcWM7nuZANEnNo`;
+}
+
 module.exports = { verify, sign };
