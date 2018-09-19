@@ -11,7 +11,6 @@ class InformationService {
     //     .then(infor => console.log(infor))
     //     .catch(error => console.log(error));
     // }
-
     // static async Remove(){
     //     const Info = await Information.findByIdAndRemove('5ba1fb4dd48a3f3a481039bf');
     //     return Info;
@@ -30,6 +29,10 @@ class InformationService {
             const infor = new Information({hotline, facebook, instagarm, address,email, images});
             return infor.save();
         });
+    }
+    static async Get() {
+        const infor=await Information.findOne({});
+        return infor;
     }
 }
 
