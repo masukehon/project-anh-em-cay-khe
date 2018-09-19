@@ -13,9 +13,11 @@ infoRouter.put('/update', (req, res, next) => {
     .then(info => res.status(200).send({success:true, info}))
     .catch(res.onError);
 });
-infoRouter.get('/get',(req,res,next)=>{
+infoRouter.get('/',(req,res,next)=>{
   InformationService.Get()
-  .then(infor=> res.send({success:true, infor}))
+  .then(infor=> {     
+      res.render('admin/master', { infor, page: "inforUpdate" });
+    })
   .catch(err=>console.log(err))
 });
 
