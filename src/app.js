@@ -7,6 +7,7 @@ const { employeeRouter } = require("./controllers/admin/employee.route");
 const { infoRouter } = require("./controllers/admin/infor.route");
 const { orderRouter } = require("./controllers/admin/order.route");
 const { expRouter } = require("./controllers/admin/experience.route");
+const { roleRouter } = require("./controllers/admin/role.route");
 
 // app.engine('.ejs', require('ejs').__express);
 // app.set('views', __dirname + '/views');
@@ -23,6 +24,7 @@ app.use((req,res,next)=>{
 
 app.use(siteRouter);
 app.use('/admin/exp',expRouter);
+app.use('/admin/role',roleRouter);
 app.use('/admin/infor',infoRouter);
 app.use('/admin/order',orderRouter);
 app.use('/admin',employeeRouter);

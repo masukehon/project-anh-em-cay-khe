@@ -1,5 +1,6 @@
 const { ServerError } = require("../models/my-error.model");
 const { Employee } = require("../models/employee.model");
+const { Role } = require("../models/role.model");
 const { hash, compare } = require("bcrypt");
 const { sign } = require("../helpers/jwt");
 const { checkObjectId } = require("../helpers/checkObjectId");
@@ -10,8 +11,10 @@ class EmployeeService {
         const employee = await Employee.findOne({email});
         if (employee)
             throw new ServerError("EMAIL_EXISTED",400);
-        let passHashed = await hash(password, 8);
-        const newEmployee = new Employee({name, email, address, phone, password: passHashed});
+        const passHashed = await hash(password, 8);
+        const roleNhanVien = await Role.findOne({slug: "nhan-vien"});
+        const data = {name, email, address, phone, password: passHashed, role: roleNhanVien._id};
+        const newEmployee = new Employee(data);
         return newEmployee.save();
     }
 
@@ -63,6 +66,26 @@ class EmployeeService {
         const newPasswordHash = await hash(newPassword, 8);
         user.password = newPasswordHash;
         return user.save();
+    }
+
+    static async updateRole(idUserCurrent = '5ba3d0e93430442304c5576d', idUserUpdate, nameRoleSlug) {
+        
+        //nameRole = slug
+        checkObjectId(idUserCurrent, idUserUpdate);
+        const adminCurrent = await Employee.findById(idUserCurrent).populate('role');
+        if(!adminCurrent)
+            throw new ServerError("CANNOT_FIND_ADMIN",404);
+        if(adminCurrent.role.slug !== "boss")
+            throw new ServerError("UNAUTHORIZED",400);
+        if(idUserCurrent === idUserUpdate)
+            throw new ServerError("CANNOT_UPDATE_YOURSELF",400);
+        const roleUpdate = await Role.findOne({slug: nameRoleSlug});
+        if(!roleUpdate)
+            throw new ServerError("CANNOT_FIND_ROLE",400);
+        const adminUpdate = await Employee.findByIdAndUpdate(idUserUpdate, {role: roleUpdate._id}, {new: true});
+        if(!adminUpdate)
+            throw new ServerError("ERROR_NOT_DEFINE",400);
+        return adminUpdate;
     }
 }
 

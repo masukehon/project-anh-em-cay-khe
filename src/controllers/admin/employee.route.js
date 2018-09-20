@@ -44,4 +44,11 @@ employeeRouter.post('/update/password', (req, res) => {
     .then(employee => res.send({sucess: true, employee}))
     .catch(res.onError);
 }); 
+
+employeeRouter.post('/update/role/:id', (req, res) => {
+    const { nameRoleSlug } = req.body;
+    EmployeeService.updateRole(req.idUser, req.params.id, nameRoleSlug)
+    .then(employee => res.send({sucess: true, employee}))
+    .catch(res.onError);
+}); 
 module.exports = {employeeRouter};
