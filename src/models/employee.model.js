@@ -10,7 +10,7 @@ const employeeSchema = new Schema({
     password: { type: String, trim: true, required: true },
     idRole: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' }
 });
-
+  
 const Employee = mongoose.model('Employee',employeeSchema);
 
 module.exports = { Employee };

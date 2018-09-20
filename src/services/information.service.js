@@ -1,5 +1,6 @@
 const { ServerError } = require("../models/my-error.model");
 const { Information } = require("../models/information.model");
+const { Employee } = require("../models/employee.model");
 const { sign } = require("../helpers/jwt");
 const { upload } = require("../helpers/multer");
 
@@ -17,13 +18,17 @@ class InformationService {
     // }
 
     static Update(req, res) {
-
+        
         return new Promise((resolve, reject) => {
             const fieldsConfig = [
                         { name: "banner", maxCount: 1 },
                         { name: "centerImage", maxCount: 1 }
                     ];
                 upload.fields(fieldsConfig)(req, res, async error =>  {
+                    const employee = await Employee.findById(req.idUser);
+
+                    if(!employee)
+                        return reject(new ServerError("CANNOT_FIND_EMPLOYEE",400));
                     if(error)
                         return reject(new ServerError("UPLOAD_IMAGE_ERROR",400));
 
