@@ -34,4 +34,4 @@ function getToken() {
     MTMwMzd9.x6DWQtqKmSy7_caoVvNVA0XDnjq1zrcWM7nuZANEnNo`;
 }
 
-module.exports = { verify, sign };
+module.exports = { verify, sign, getToken };

@@ -29,8 +29,38 @@ class EmployeeService {
         return employee;
     }
 
-    static async Update(name, email, password) {
+    static async getAll() {
+        return Employee.find({});
+    }
 
+    static async updateInfo(idUser = '5ba1f1421958eb1950ee3c0a', name, address, phone) {
+        if(!name)
+            throw new ServerError("NAME_INVALID",404);
+
+        const employee = await Employee.findById(idUser);
+        if (!employee)
+            throw new ServerError("CANNOT_FIND_EMPLOYEE",404);
+        
+        const newEmployee = await Employee.findByIdAndUpdate(idUser, {name, address, phone}, {new: true});
+        if (!newEmployee)
+            throw new ServerError("CANNOT_FIND_EMPLOYEE",404);
+
+        return newEmployee;
+    }
+
+    static async updatePassword(idUser = '5ba1f1421958eb1950ee3c0a', oldPassword, newPassword) {
+
+        if(!newPassword) throw new ServerError("NEW_PASSWORD_INVALID",400);
+        
+        const user = await Employee.findById(idUser);
+        if(!user) throw new ServerError("CANNOT_FIND_EMPLOYEE",404);
+
+        const checkOldPass = await compare(oldPassword, user.password);
+        if(!checkOldPass) throw new ServerError("CANNOT_FIND_EMPLOYEE",404);
+        
+        const newPasswordHash = await hash(newPassword, 8);
+        user.password = newPasswordHash;
+        return user.save();
     }
 }
 

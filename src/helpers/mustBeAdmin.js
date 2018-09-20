@@ -1,11 +1,12 @@
-const { verify,sign } = require("./jwt");
+const { verify, sign, getToken } = require("./jwt");
 const { ServerError } = require("../models/my-error.model");
 
 async function mustBeAdmin(req, res, next){
-    const token = req.header.token;
-    const user = await verify(token);
+    // const token = req.header.token;
+    const token = getToken();
+    const user = await verify(token).catch(res.redirect('/'));
     if(!user)
-        throw new ServerError("INVALID_TOKEN", 400);
+        return res.redirect('/');
     req.idUser = user._id;
     next();
 }
