@@ -1,5 +1,5 @@
 process.env.NODE_ENV = 'test';
-require('../src/helpers/connectDatabase');
+require('../src/helpers/connectDB');
 const { Information } = require('../src/models/information.model');
 
 beforeEach('Remove database for test', async () => {

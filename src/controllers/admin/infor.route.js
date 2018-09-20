@@ -13,7 +13,6 @@ const infoRouter = Router();
 infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
     .then(infor =>{
-      //res.status(200).send({success:true, info});
       res.redirect('/admin/infor');
     })
     .catch(res.onError);

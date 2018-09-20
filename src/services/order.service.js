@@ -22,7 +22,6 @@ class OrderService {
 
         return order;
     }
-
     static async Create(name, email, phone) {
         if(!name || !email || !phone)
             throw new ServerError("INFORMATION_ORDER_INVALID",400);

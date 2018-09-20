@@ -5,13 +5,15 @@ const orderRouter = Router();
 
 orderRouter.get('/', (req, res, next) => {
     OrderService.getAll()
-    .then(orders => res.status(200).send({success:true, orders}))
+    .then(orders => {
+        res.render('admin/master', {orders, page: "formOrderGet"});
+    })
     .catch(res.onError);
 });
 
 orderRouter.get('/:id', (req, res, next) => {
     OrderService.getOne(req.params.id)
-    .then(orders => res.status(200).send({success:true, orders}))
+    .then(orders => res.redirect('back'))
     .catch(res.onError);
 });
 

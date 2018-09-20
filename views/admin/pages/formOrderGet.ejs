@@ -2,16 +2,36 @@
     <table id="datatable" class="table table-striped table-bordered">
         <thead>
             <tr>
-                   <th>name</th>
+                   <th>order id </th>
+                   <th>customer</th>
                    <th>email</th>
                    <th>phone</th>
                    <th>Require dDate</th>
+                   <th>seen</th>
                </tr>
            </thead>
            <tbody>
-                   <td>cong nghe</td>
-                   <td>cong nghe chinh</td>
-                   <td>dsadsadsadsa</td>   
-                   <th>9/9/1996</th>               
+                <%orders.forEach(o=>{
+                    const { _id,customerName, email, phone, isSeen, requiredDate } = o;
+                    %>  
+                <tr>
+                   <% if (isSeen) { %>
+                    <th><a><%= _id%></a></th>
+                  <% } %>
+                  <% if (!isSeen) { %>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= _id%></a></th>
+                  <% } %>        
+                   <td><%= customerName%></td>
+                   <td><%= email%></td>
+                   <td><%= phone%></td>   
+                   <th><%= requiredDate%></th> 
+                   <% if (isSeen) { %>
+                    <th><a>đã xem</a></th>
+                    <% } %>
+                    <% if (!isSeen) { %>
+                        <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;">chưa xem</a></th>
+                    <% } %>
+                </tr> 
+                   <% }) %>             
            </tbody>
     </table>
