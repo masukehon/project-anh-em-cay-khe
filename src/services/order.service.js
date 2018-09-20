@@ -27,7 +27,7 @@ class OrderService {
         if(!name || !email || !phone)
             throw new ServerError("INFORMATION_ORDER_INVALID",400);
         
-        const order = new Order({customerName: name, email, phone, isSeen: false});
+        const order = new Order({customerName: name, email, phone, isSeen: false, requiredDate: Date.now()});
         return order.save();
     }
    

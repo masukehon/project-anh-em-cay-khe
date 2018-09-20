@@ -2,6 +2,7 @@ const { ServerError } = require("../models/my-error.model");
 const { Employee } = require("../models/employee.model");
 const { hash, compare } = require("bcrypt");
 const { sign } = require("../helpers/jwt");
+const { checkObjectId } = require("../helpers/checkObjectId");
 
 class EmployeeService {
 
@@ -34,6 +35,7 @@ class EmployeeService {
     }
 
     static async updateInfo(idUser = '5ba1f1421958eb1950ee3c0a', name, address, phone) {
+        checkObjectId(idUser);
         if(!name)
             throw new ServerError("NAME_INVALID",404);
 
@@ -49,7 +51,7 @@ class EmployeeService {
     }
 
     static async updatePassword(idUser = '5ba1f1421958eb1950ee3c0a', oldPassword, newPassword) {
-
+        checkObjectId(idUser);
         if(!newPassword) throw new ServerError("NEW_PASSWORD_INVALID",400);
         
         const user = await Employee.findById(idUser);
