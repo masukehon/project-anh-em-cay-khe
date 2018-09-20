@@ -12,7 +12,7 @@ infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
     .then(infor =>{
       //res.status(200).send({success:true, info});
-      setTimeout(()=>res.redirect('/admin/infor'),1000);
+      res.redirect('/admin/infor');
     })
     .catch(res.onError);
 });
