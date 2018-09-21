@@ -70,21 +70,28 @@ class EmployeeService {
 
     static async updateRole(idUserCurrent = '5ba3d0e93430442304c5576d', idUserUpdate, nameRoleSlug) {
         
-        //nameRole = slug
         checkObjectId(idUserCurrent, idUserUpdate);
+
         const adminCurrent = await Employee.findById(idUserCurrent).populate('role');
         if(!adminCurrent)
             throw new ServerError("CANNOT_FIND_ADMIN",404);
+        //admin hiện tại ko phải boss thì ko cho update
         if(adminCurrent.role.slug !== "boss")
             throw new ServerError("UNAUTHORIZED",400);
         if(idUserCurrent === idUserUpdate)
             throw new ServerError("CANNOT_UPDATE_YOURSELF",400);
+
         const roleUpdate = await Role.findOne({slug: nameRoleSlug});
         if(!roleUpdate)
             throw new ServerError("CANNOT_FIND_ROLE",400);
+        //ko thể sửa chức vụ thành boss. Chỉ có 1 người là boss
+        if(roleUpdate.slug === "boss")
+            throw new ServerError("UNAUTHORIZED",400);
+
         const adminUpdate = await Employee.findByIdAndUpdate(idUserUpdate, {role: roleUpdate._id}, {new: true});
         if(!adminUpdate)
             throw new ServerError("ERROR_NOT_DEFINE",400);
+        
         return adminUpdate;
     }
 }

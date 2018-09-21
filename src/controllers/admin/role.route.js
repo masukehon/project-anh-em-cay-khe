@@ -28,10 +28,6 @@ roleRouter.post('/remove/:id', (req, res, next) => {
   .catch(res.onError);
 });
 
-roleRouter.post('/removeall', async(req, res, next) => {
-  await Employee.remove({});
-});
-
 roleRouter.get('/',(req,res,next)=>{
   RoleService.getAll()
     .then(roles =>{

@@ -18,41 +18,41 @@ class InformationService {
     // }
 
     static Update(req, res) {
-        
+
         return new Promise((resolve, reject) => {
             const fieldsConfig = [
-                        { name: "banner", maxCount: 1 },
-                        { name: "centerImage", maxCount: 1 }
-                    ];
-                upload.fields(fieldsConfig)(req, res, async error =>  {
-                    const employee = await Employee.findById(req.idUser);
+                { name: "banner", maxCount: 1 },
+                { name: "centerImage", maxCount: 1 }
+            ];
+            upload.fields(fieldsConfig)(req, res, async error => {
+                const employee = await Employee.findById(req.idUser);
 
-                    if(!employee)
-                        return reject(new ServerError("CANNOT_FIND_EMPLOYEE",400));
-                    if(error)
-                        return reject(new ServerError("UPLOAD_IMAGE_ERROR",400));
+                if (!employee)
+                    return reject(new ServerError("CANNOT_FIND_EMPLOYEE", 400));
+                if (error)
+                    return reject(new ServerError("UPLOAD_IMAGE_ERROR", 400));
 
-                    const {hotline, facebook, instagram, address, email} = req.body;
-                    if(req.files) {
-                        const data = {hotline, facebook, instagram, address, email};
-                        const { banner, centerImage } = req.files;
-                        
-                        if(banner)
-                            data.banner = banner[0].filename;
-                        if(centerImage)
-                            data.centerImage = centerImage[0].filename;
-                            
-                        return resolve(Information.findOneAndUpdate({}, data, { new: true }));
-                    }
-                    else {
-                        const data = {hotline, facebook, instagram, address, email};
-                        return resolve(Information.findOneAndUpdate({}, data, { new: true }));
-                    }
+                const { hotline, facebook, instagram, address, email } = req.body;
+                if (req.files) {
+                    const data = { hotline, facebook, instagram, address, email };
+                    const { banner, centerImage } = req.files;
+
+                    if (banner)
+                        data.banner = banner[0].filename;
+                    if (centerImage)
+                        data.centerImage = centerImage[0].filename;
+
+                    return resolve(Information.findOneAndUpdate({}, data, { new: true }));
+                }
+                else {
+                    const data = { hotline, facebook, instagram, address, email };
+                    return resolve(Information.findOneAndUpdate({}, data, { new: true }));
+                }
             });
         });
     }
     static async Get() {
-        return Information.findOne({});   
+        return Information.findOne({});
     }
 }
 
