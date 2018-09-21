@@ -25,7 +25,7 @@ app.use((req,res,next)=>{
 
 app.use(siteRouter);
 app.use('/admin/exp',expRouter);
-// app.use('/admin/role',roleRouter);
+app.use('/admin/role',roleRouter);
 app.use('/admin/certification',certiRouter);
 app.use('/admin/infor',infoRouter);
 app.use('/admin/order',orderRouter);

@@ -5,7 +5,7 @@ const { Certification } = require("../../models/certification.model");
 const certiRouter = Router();
 
 certiRouter.get('/', (req, res) => {
-  res.render('test');
+  res.render('admin/master',{ page:"formCertificationGet"});
 });
 
 // certiRouter.post('/create', (req, res) => {
