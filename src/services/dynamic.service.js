@@ -72,7 +72,7 @@ class DynamicService {
 
                 const { title, content, isHighLight, unit } = req.body;
                 
-                const data = { title, content };
+                const data = { title, content, isHighLight, unit };
 
                 if(req.files) {
 

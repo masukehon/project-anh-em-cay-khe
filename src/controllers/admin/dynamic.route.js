@@ -15,7 +15,7 @@ dynamicRouter.get('/:dynamicName/form', (req, res) => {
     res.render("test");
 });
 
-dynamicRouter.post('/create', (req, res) => {
+dynamicRouter.post('/:dynamicName/create', (req, res) => {
     DynamicService.create(req,res)
     .then(feat => res.send({success: true, feat}))
     .catch(res.onError);
