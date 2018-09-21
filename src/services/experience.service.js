@@ -7,7 +7,10 @@ class ExperienceService {
     static async getAll() {
         return Experience.find({});
     }
-
+    static  async getById(id) {
+        checkObjectId(id);
+        return Experience.findById(id);
+    }
     static async create(title, link) {
         if(!title) throw new ServerError("TITLE_INVALID",400);
         if(!link) throw new ServerError("LINK_INVALID",400);
