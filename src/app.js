@@ -28,7 +28,7 @@ app.use((req,res,next)=>{
 
 
 app.use('/admin/exp', expRouter);
-// app.use('/admin/role',roleRouter);
+app.use('/admin/role',roleRouter);
 app.use('/admin/dynamic', dynamicRouter);
 app.use('/admin/category', cateRouter);
 app.use('/admin/imgUserMannual', imgUMRouter);

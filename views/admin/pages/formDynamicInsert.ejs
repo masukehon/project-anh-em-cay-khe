@@ -1,15 +1,7 @@
 <div class="container">
     <h3>Insert employess</h3>
     <hr>
-    <form action="" method="POST">
-         <div class="form-group">
-            <label>Category:</label>
-            <select class="form-control">
-              <option value="">Category 1</option>
-              <option value="">Category 2</option>
-              <option value="">Category 3</option>
-            </select>
-          </div>
+    <form action="/admin/dynamic/<%=dynamicForm%>/create" enctype="multipart/form-data" method="POST">
       <div class="form-group">
         <label>Title:</label>
         <input type="text" class="form-control" placeholder="Enter Title" name="title">

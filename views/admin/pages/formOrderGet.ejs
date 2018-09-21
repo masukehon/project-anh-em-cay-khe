@@ -20,16 +20,19 @@
                   <% } %>
                   <% if (!isSeen) { %>
                     <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= _id%></a></th>
-                  <% } %>        
-                   <td><%= customerName%></td>
-                   <td><%= email%></td>
-                   <td><%= phone%></td>   
-                   <th><%= requiredDate%></th> 
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= customerName%></a></th>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= email%></a></th>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= phone%></a></th>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= requiredDate%></a></th>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;">chưa xem</a></th>
+                  <% } %>   
+
                    <% if (isSeen) { %>
+                    <td><%= customerName%></td>
+                    <td><%= email%></td>
+                    <td><%= phone%></td>   
+                    <th><%= requiredDate%></th> 
                     <th><a>đã xem</a></th>
-                    <% } %>
-                    <% if (!isSeen) { %>
-                        <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;">chưa xem</a></th>
                     <% } %>
                 </tr> 
                    <% }) %>             

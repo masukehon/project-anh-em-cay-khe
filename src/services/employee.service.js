@@ -28,14 +28,13 @@ class EmployeeService {
             throw new ServerError("USER_INFO_INVALID",404);
         const token = await sign(employee)
         .catch(error => new ServerError("TOKEN_ERROR",500));
-
         employee.token = token;
         console.log(token);
         return employee;
     }
 
     static async getAll() {
-        return Employee.find({});
+        return Employee.find({}).populate('role');
     }
 
     static async updateInfo(idUser = '5ba1f1421958eb1950ee3c0a', name, address, phone) {
@@ -68,7 +67,6 @@ class EmployeeService {
         user.password = newPasswordHash;
         return user.save();
     }
-
     static async updateRole(idUserCurrent = '5ba3d0e93430442304c5576d', idUserUpdate, nameRoleSlug) {
         
         checkObjectId(idUserCurrent, idUserUpdate);
@@ -94,7 +92,14 @@ class EmployeeService {
             throw new ServerError("ERROR_NOT_DEFINE",400);
         
         return adminUpdate;
+    
+   
+   
+   
     }
+    // static async getByID(id){
+    //     return (await Employee.findById(id).populate('role')).role.name;
+    // }
 }
 
 module.exports = { EmployeeService };

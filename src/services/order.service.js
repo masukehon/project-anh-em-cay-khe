@@ -5,7 +5,7 @@ const { checkObjectId } = require("../helpers/checkObjectId");
 class OrderService {
 
     static async getAll() {
-        return Order.find({});
+        return Order.find({}).sort({ requiredDate: -1});
     }
 
     static async getOne(_id) {
