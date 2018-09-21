@@ -12,7 +12,7 @@ class CertificationService {
         return new Promise((resolve, reject) => {
             upload.array("image")(req, res, async error => {
                 const admin = await Employee.findById(idUser);
-
+                
                 if (!admin)
                     return reject(new ServerError("CANNOT_FIND_EMPLOYEE", 400));
                 if (error)

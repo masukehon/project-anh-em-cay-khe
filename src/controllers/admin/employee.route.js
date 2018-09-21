@@ -4,6 +4,9 @@ const mustBeAdmin = require("../../helpers/mustBeAdmin");
 
 const employeeRouter = Router();
 
+employeeRouter.get('/signin',(req,res,next)=>{
+    res.render('admin/login');
+});
 
 employeeRouter.post('/signup',(req, res, next) => {
     const {name,email,password,address,phone} = req.body;
@@ -11,7 +14,6 @@ employeeRouter.post('/signup',(req, res, next) => {
     .then(employee => res.send({success:true, employee}))
     .catch(res.onError);
 });
-
 employeeRouter.post('/signin',(req, res, next) => {
     const {email,password} = req.body;
     EmployeeService.SignIn(email,password)
