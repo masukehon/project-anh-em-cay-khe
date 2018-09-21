@@ -29,6 +29,7 @@ class EmployeeService {
         const token = await sign(employee)
         .catch(error => new ServerError("TOKEN_ERROR",500));
         employee.token = token;
+        console.log(token);
         return employee;
     }
 
