@@ -1,13 +1,13 @@
-const { Certification } = require("../models/certification.model");
+const { ImgUserMannual } = require("../models/image-user-manual.model");
 const { Employee } = require("../models/employee.model");
 const { ServerError } = require("../models/my-error.model");
 const { upload } = require("../helpers/multer");
 
-class CertificationService {
 
+class ImgUserMannualService {
     // static async create() {
-    //     return (new Certification()).save();
-    // }
+    //         return (new ImgUserMannual()).save();
+    //     }
     static async update(idUser = '5ba3d0e93430442304c5576d', req, res) {
         return new Promise((resolve, reject) => {
             upload.array("image")(req, res, async error => {
@@ -18,18 +18,17 @@ class CertificationService {
                 if (error)
                     return reject(new ServerError("UPLOAD_IMAGE_ERROR", 400));
                 const imgs = req.files;
-                const cer = await Certification.findOne({});
-                cer.images = [];
-                if (imgs) {
+                const imgUserMan = await ImgUserMannual.findOne({});
+                imgUserMan.images = [];
+                if(imgs) {
                     imgs.forEach(img => {
-                        cer.images.push(img.filename);
+                        imgUserMan.images.push(img.filename);
                     });
                 }
-                const updateCer = cer.save();
-                return resolve(updateCer);
+                const updateImgUserMan = imgUserMan.save();
+                return resolve(updateImgUserMan);
             });
         });
     }
 }
-
-module.exports = { CertificationService };
+module.exports= { ImgUserMannualService };
