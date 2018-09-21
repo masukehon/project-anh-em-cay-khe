@@ -5,17 +5,20 @@ const dynamicRouter = Router();
 
 dynamicRouter.use(mustBeAdmin);
 
-dynamicRouter.get('/:dynamicName/', (req, res) => {
+dynamicRouter.get('/:dynamicName', (req, res) => {
     DynamicService.getAll(req.params.dynamicName)
-    .then(feat => res.send({success: true, feat}))
+    .then(feats => {
+        // res.send({success: true, feat});
+        res.render('admin/master',{ feats, page:"formDynamicGet"});
+    })
     .catch(res.onError);
 });
-
-dynamicRouter.get('/:dynamicName/form', (req, res) => {
-    res.render("test");
+//form insert dynamic
+dynamicRouter.get('/:dynamicName/insert',(req,res)=>{
+    res.render('admin/master',{page:"formDynamicInsert",dynamicForm:req.params.dynamicName});
 });
+dynamicRouter.post('/:dynamicName/create', (req, res) => {
 
-dynamicRouter.post('/create', (req, res) => {
     DynamicService.create(req,res)
     .then(feat => res.send({success: true, feat}))
     .catch(res.onError);
