@@ -9,7 +9,7 @@ const dynamicSchema = new Schema({
     unit: { type: Number, trim: true },
     imagePrimary: { type: String, trim: true},
     imageSub: { type: String, trim: true},
-    idCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }
+    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }
 });
 
 const Dynamic = mongoose.model('Dynamic',dynamicSchema);

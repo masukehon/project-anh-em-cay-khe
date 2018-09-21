@@ -10,6 +10,9 @@ const { expRouter } = require("./controllers/admin/experience.route");
 const { roleRouter } = require("./controllers/admin/role.route");
 const { certiRouter } = require("./controllers/admin/certification.route");
 const { imgUMRouter } = require("./controllers/admin/img-user-mannual.route");
+const { cateRouter } = require("./controllers/admin/category.route");
+const { dynamicRouter } = require("./controllers/admin/dynamic.route");
+
 // app.engine('.ejs', require('ejs').__express);
 // app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -23,13 +26,15 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use(siteRouter);
-app.use('/admin/exp',expRouter);
-// app.use('/admin/role',roleRouter);
-app.use('/admin/imgUserMannual',imgUMRouter);
-app.use('/admin/certification',certiRouter);
-app.use('/admin/infor',infoRouter);
-app.use('/admin/order',orderRouter);
-app.use('/admin',employeeRouter);
 
+app.use('/admin/exp', expRouter);
+// app.use('/admin/role',roleRouter);
+app.use('/admin/dynamic', dynamicRouter);
+app.use('/admin/category', cateRouter);
+app.use('/admin/imgUserMannual', imgUMRouter);
+app.use('/admin/certification', certiRouter);
+app.use('/admin/infor', infoRouter);
+app.use('/admin/order', orderRouter);
+app.use('/admin', employeeRouter);
+app.use('/', siteRouter);
 module.exports = {app};

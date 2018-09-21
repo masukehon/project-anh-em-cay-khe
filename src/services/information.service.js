@@ -44,10 +44,9 @@ class InformationService {
 
                     return resolve(Information.findOneAndUpdate({}, data, { new: true }));
                 }
-                else {
-                    const data = { hotline, facebook, instagram, address, email };
-                    return resolve(Information.findOneAndUpdate({}, data, { new: true }));
-                }
+                
+                const data = { hotline, facebook, instagram, address, email };
+                return resolve(Information.findOneAndUpdate({}, data, { new: true }));
             });
         });
     }
