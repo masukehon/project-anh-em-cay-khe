@@ -7,8 +7,8 @@
         <tr>
                <th>Title</th>
                <th>Content</th>
-               <th>unit</th>
                <th>image Primary</th>
+               <th>unit</th>
                <th>image Sub</th>
                <th>highlight</th>
                <th>Delete</th>
@@ -24,16 +24,16 @@
                <td><%= content%></td>
                <td><%= unit%></td>
                <td>
-                   <img src="admin/image/<%= imagePrimary%>" alt="">
+                   <img src="images/admin/<%= imagePrimary%>" width="50px" alt="">
                </td>
                <td>
-                    <img src="admin/image/<%= imageSub%>" alt="">
+                    <img src="admin/image/<%= imageSub%>" width="50px" alt="">
                </td>
                <td>
                    <input type="checkbox">
                </td>
-               <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href=""> Xóa</a></td>
-               <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="">Sữa</a></td>
+               <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="/admin/dynamic/remove/<%=_id%>"> Xóa</a></td>
+               <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/dynamic/frUpdate/<%=_id%>">Sữa</a></td>
             </tr>
             <% })%>
         </tbody>
