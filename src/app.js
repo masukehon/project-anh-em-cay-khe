@@ -1,5 +1,9 @@
 const express = require("express");
 const json = require("body-parser");
+const mustBeAdmin = require("./helpers/mustBeAdmin");
+const getOrdersNotSeen = require("./helpers/getOrdersNotSeen");
+var cookieParser = require('cookie-parser')
+
 
 const app = express();
 const { siteRouter } = require("./controllers/site/site.route");
@@ -13,20 +17,31 @@ const { imgUMRouter } = require("./controllers/admin/img-user-mannual.route");
 const { cateRouter } = require("./controllers/admin/category.route");
 const { dynamicRouter } = require("./controllers/admin/dynamic.route");
 
+
+
 // app.engine('.ejs', require('ejs').__express);
 // app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
 app.use(json());
+app.use(cookieParser());
 app.use((req,res,next)=>{
     res.onError = error => {
         res.status(error.statusCode || 500).send({success: false, message: error.message});
     };
     next();
 });
+getOrdersNotSeen()
+.then(orders => {
+    app.locals.ordersNotSeen = orders;
+})
+.catch(error => console.log(error));
 
+app.use('/', siteRouter);
+app.use('/admin', employeeRouter);
 
+app.use(mustBeAdmin);
 app.use('/admin/exp', expRouter);
 app.use('/admin/role',roleRouter);
 app.use('/admin/dynamic', dynamicRouter);
@@ -35,6 +50,6 @@ app.use('/admin/imgUserMannual', imgUMRouter);
 app.use('/admin/certification', certiRouter);
 app.use('/admin/infor', infoRouter);
 app.use('/admin/order', orderRouter);
-app.use('/admin', employeeRouter);
-app.use('/', siteRouter);
+
+
 module.exports = {app};

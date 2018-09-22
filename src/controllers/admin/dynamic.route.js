@@ -9,7 +9,7 @@ dynamicRouter.get('/:dynamicName', (req, res) => {
     DynamicService.getAll(req.params.dynamicName)
     .then(feats => {
         // res.send({success: true, feat});
-        res.render('admin/master',{ feats, page:"formDynamicGet"});
+        res.render('admin/master',{ feats, page:"formDynamicGet", dynamicForm: req.params.dynamicName});
     })
     .catch(res.onError);
 });
@@ -17,6 +17,7 @@ dynamicRouter.get('/:dynamicName', (req, res) => {
 dynamicRouter.get('/:dynamicName/insert',(req,res)=>{
     res.render('admin/master',{page:"formDynamicInsert",dynamicForm:req.params.dynamicName});
 });
+
 dynamicRouter.post('/:dynamicName/create', (req, res) => {
 
     DynamicService.create(req,res)

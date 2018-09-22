@@ -17,12 +17,12 @@ employeeRouter.post('/signup', (req, res, next) => {
 });
 employeeRouter.post('/signin', (req, res, next) => {
     const { email, password } = req.body;
-    EmployeeService.SignIn(email, password)
-        .then(employee => res.send({ success: true, employee }))
+    EmployeeService.SignIn(email, password, res)
+        .then(employee => res.redirect('/admin'))
         .catch(res.onError);
 });
 
-// employeeRouter.use(mustBeAdmin);
+employeeRouter.use(mustBeAdmin);
 
 employeeRouter.get('/all', (req, res, next) => {
     EmployeeService.getAll()
@@ -64,4 +64,11 @@ employeeRouter.get('/all/formInsert', (req, res, next) => {
 //     .then(roleName=>res.render('admin/master', { roleName ,page: "formEmployeeUpdate" }))
 //     .catch(res.onError);
 // });
+
+employeeRouter.get('/logout', (req, res, next) => {
+    EmployeeService.logout(res)
+    .then(result => res.redirect('/admin/login'))
+    .catch(res.onError);
+});
+
 module.exports = { employeeRouter };

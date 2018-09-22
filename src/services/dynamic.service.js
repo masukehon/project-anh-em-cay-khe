@@ -7,20 +7,15 @@ const { upload } = require("../helpers/multer");
 
 class DynamicService {
     static async getAll(dynamicName) {
-        const asd = await Dynamic.find().populate({
+        const dynamics = await Dynamic.find().populate({
             path: 'category',
             match: {
               name: dynamicName
             }
           });
-        console.log(asd);
-        return Dynamic.find().populate({
-            path: 'category',
-            match: {
-              name: dynamicName
-            }
-          });
-          
+        const data = dynamics.filter(d =>  d.category && d.category.name === dynamicName);
+        
+        return data;
     }
 
     static async getOne(id) {
@@ -29,6 +24,7 @@ class DynamicService {
 
     static async create(req, res ) {
         const { dynamicName } = req.params;
+
         const obj = await Category.findOne({name: dynamicName});
         const idCategory = obj._id;
         return new Promise((resolve, reject) => {
@@ -37,11 +33,10 @@ class DynamicService {
                 { name: "imageSub", maxCount: 1 }
             ];
             upload.fields(fieldsConfig)(req, res, async error => {
-                // const employee = await Employee.findOne({ _id: '5ba493bff8550313c59da5ae' });
-                console.log(req.files);
+                const employee = await Employee.findById(req.idUser);
                 
-                // if (!employee)
-                    // return reject(new ServerError("CANNOT_FIND_EMPLOYEE", 400));
+                if (!employee)
+                    return reject(new ServerError("CANNOT_FIND_EMPLOYEE", 400));
                 if (error) {
                     return reject(new ServerError("UPLOAD_IMAGE_ERROR", 400));
                 }
@@ -53,7 +48,6 @@ class DynamicService {
                 
                 if(req.files) {
                     if(req.files.imagePrimary){
-                        console.log('vao');
                         imagePrimary = req.files.imagePrimary[0].filename;}
                     if(req.files.imageSub)
                         imageSub = req.files.imageSub[0].filename;

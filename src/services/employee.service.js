@@ -18,8 +18,9 @@ class EmployeeService {
         return newEmployee.save();
     }
 
-    static async SignIn(email, password) {
+    static async SignIn(email, password, res) {
         const employee = await Employee.findOne({email});
+
         if (!employee)
             throw new ServerError("USER_INFO_INVALID",404);
         const checkPass = await compare(password, employee.password);
@@ -28,8 +29,7 @@ class EmployeeService {
             throw new ServerError("USER_INFO_INVALID",404);
         const token = await sign(employee)
         .catch(error => new ServerError("TOKEN_ERROR",500));
-        employee.token = token;
-        console.log(token);
+        res.cookie('auth',token);
         return employee;
     }
 
@@ -92,10 +92,11 @@ class EmployeeService {
             throw new ServerError("ERROR_NOT_DEFINE",400);
         
         return adminUpdate;
-    
-   
-   
-   
+    }
+
+    static async logout(res) {
+        res.cookie("auth", '');
+        return true;
     }
     // static async getByID(id){
     //     return (await Employee.findById(id).populate('role')).role.name;
