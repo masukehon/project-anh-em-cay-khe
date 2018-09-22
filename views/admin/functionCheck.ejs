@@ -1,0 +1,34 @@
+<%
+checkHide = function(dynamicForm,nameRow) {
+
+    const feature = dynamicForm === 'feature' && nameRow === 'title' ||
+                    dynamicForm === 'feature' && nameRow === 'content' ||
+                    dynamicForm === 'feature' && nameRow === 'imagePri';
+
+    const technology = dynamicForm === 'technology' && nameRow === 'title' ||
+                       dynamicForm === 'technology' && nameRow === 'content' ||
+                       dynamicForm === 'technology' && nameRow === 'imagePri' ||
+                       dynamicForm === 'technology' && nameRow === 'highlight';
+
+    const component = dynamicForm === 'component' && nameRow === 'title' ||
+                       dynamicForm === 'component' && nameRow === 'content' ||
+                       dynamicForm === 'component' && nameRow === 'imagePri' ||
+                       dynamicForm === 'component' && nameRow === 'highlight' ||
+                       dynamicForm === 'component' && nameRow === 'unit';
+
+    const introduction = dynamicForm === 'introduction' && nameRow === 'title' ||
+                         dynamicForm === 'introduction' && nameRow === 'content' ||
+                         dynamicForm === 'introduction' && nameRow === 'imagePri' ||
+                         dynamicForm === 'introduction' && nameRow === 'imageSub';
+
+    const uses = dynamicForm === 'uses' && nameRow === 'content' ||
+                 dynamicForm === 'uses' && nameRow === 'imagePri';   
+
+    const user_manual = dynamicForm === 'user_manual' && nameRow === 'content' ||
+                        dynamicForm === 'user_manual' && nameRow === 'title';
+
+    const product_recognition = dynamicForm === 'product_recognition' && nameRow === 'content';
+
+    return feature || technology || component || introduction || uses || user_manual || product_recognition;
+}
+%>
