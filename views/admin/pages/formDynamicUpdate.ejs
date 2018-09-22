@@ -1,26 +1,28 @@
-<form action="" enctype="multipart/form-data" method="POST">
+<form action="/admin/dynamic/update/<%=feat._id%>" enctype="multipart/form-data" method="POST">
     <div class="form-group">
-        <label>Danh mục</label>
-      <select class="form-control" value="">
-          <option value="">sadsad</option>
-          <option value="">sadsad</option>
-      </select>
-      <label>tiêu đề</label>
-      <input type="text" class="form-control"  placeholder="title">
-      <label>Nội dung</label>
-      <input type="text" class="form-control"  placeholder="content">
-      <label>khối lượng</label>
-      <input type="text" class="form-control" placeholder="unit">
+      <label>title</label>
+      <input type="text" class="form-control" name="title" value="<%=feat.title%>">
+      <label>Content</label>
+      <input type="text" class="form-control"  name="content" value="<%=feat.content%>">
+      <label>unit</label>
+      <input type="text" class="form-control" name="unit" value="<%=feat.unit%>">
       <br>
-      <label class="checkbox-inline"><input type="checkbox" value="">nổi bật</label>
+      <label>image Primary</label>
+      <img src="images/admin/<%=feat.imagePrimary%>" alt="not found" width="50px">
+      <input type="file" class="form-control-file" name="imagePrimary">
       <br>
+      <hr>
+      <label>image Sub</label>
+      <img src="images/admin/<%=feat.imageSub%>" alt="not found" width="50px">
+      <input type="file" class="form-control-file" name="imageSub">
       <br>
-      <label>Hình chính</label>
-      <input type="file" class="form-control-file">
+      <% if(feat.isHighLight){ %>
+        <label class="checkbox-inline"><input type="checkbox" checked value="">highlight</label>
+      <% } else { %>
+        <label class="checkbox-inline"><input type="checkbox" value="">highlight</label>
+      <% } %>
       <br>
-      <label>Hình phụ</label>
-      <input type="file" class="form-control-file">
     </div>
     <br>
-    <button type="submit" class="btn btn-primary mb-2">Create</button>
+    <button type="submit" class="btn btn-primary mb-2">Update</button>
   </form>

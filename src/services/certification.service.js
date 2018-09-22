@@ -8,7 +8,7 @@ class CertificationService {
     // static async create() {
     //     return (new Certification()).save();
     // }
-    static async update(idUser = '5ba3d0e93430442304c5576d', req, res) {
+    static async update(idUser, req, res) {
         return new Promise((resolve, reject) => {
             upload.array("image")(req, res, async error => {
                 const admin = await Employee.findById(idUser);

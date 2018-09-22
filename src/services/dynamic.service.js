@@ -103,7 +103,7 @@ class DynamicService {
     }
 
     static async remove(idDynamic) {
-        const dynamic = await Dynamic.removeById(idDynamic);
+        const dynamic = await Dynamic.findByIdAndRemove(idDynamic);
         if(!dynamic)
             throw new ServerError("NOT_FOUND",404);
         return dynamic;
