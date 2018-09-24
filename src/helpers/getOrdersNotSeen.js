@@ -1,14 +1,15 @@
 const { ServerError } = require("../models/my-error.model");
 const { Order } = require("../models/order.model");
+<<<<<<< HEAD
 const { Employee } = require("../models/employee.model");
 const { checkObjectId } = require("./checkObjectId");
+=======
+>>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 
 async function getOrdersNotSeen(){
-    return new Promise((resolve, reject) => {
-        Order.find({ isSeen: false })
-        .then(async orders => {
+    return Order.find({ isSeen: false })
+        .then(orders => {
             orders.forEach(order => {
-                
                 order.distanceTime = Math.floor((new Date().getTime() - order.requiredDate.getTime())/1000); //=> ra giây
                 if(order.distanceTime < 60)
                     order.distanceTime = "Vừa xong";
@@ -32,10 +33,8 @@ async function getOrdersNotSeen(){
                     order.distanceTime = "";
                 }
             });
-            return resolve(orders);
-        })
-        .catch(error => reject(error));
-    });
+            return orders;
+        });
 }
 
 module.exports = getOrdersNotSeen;

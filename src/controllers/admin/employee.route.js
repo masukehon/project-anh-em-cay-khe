@@ -1,8 +1,14 @@
 const { Router } = require("express");
 const { EmployeeService } = require("../../services/employee.service");
 const mustBeAdmin = require("../../helpers/mustBeAdmin");
+<<<<<<< HEAD
 const getOrdersNotSeen = require("../../helpers/getOrdersNotSeen");
 const { RoleService } = require("../../services/role.service")
+=======
+const mustBeBoss = require("../../helpers/mustBeBoss");
+const getNameAdmin = require("../../helpers/getNameAdmin");
+
+>>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 
 const employeeRouter = Router();
 
@@ -23,13 +29,7 @@ employeeRouter.post('/signin', (req, res, next) => {
         .catch(res.onError);
 });
 
-employeeRouter.use(mustBeAdmin);
 
-employeeRouter.get('/all', (req, res, next) => {
-    EmployeeService.getAll()
-        .then(employees => res.render('admin/master', { employees, page: "formEmployeeGet" }))
-        .catch(error => console.log(error));
-});
 
 employeeRouter.get('/', (req, res, next) => {
     res.render('admin/master', { page: "dashboard" });//get infor
@@ -55,8 +55,15 @@ employeeRouter.post('/update/role/:id', (req, res) => {
         .then(employee => res.send({ sucess: true, employee }))
         .catch(res.onError);
 });
+
+employeeRouter.get('/all', mustBeBoss, (req, res, next) => {
+    EmployeeService.getAll()
+        .then(employees => res.render('admin/master', { employees, page: "formEmployeeGet" }))
+        .catch(error => console.log(error));
+});
+
 //lay role chuyen vao form insert
-employeeRouter.get('/all/formInsert', (req, res, next) => {
+employeeRouter.get('/all/formInsert', mustBeBoss, (req, res, next) => {
     res.render('admin/master', { page: "formEmployeeInsert" });
 });
 

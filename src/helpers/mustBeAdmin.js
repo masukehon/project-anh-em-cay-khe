@@ -2,6 +2,11 @@ const { verify, sign, getToken } = require("./jwt");
 const { ServerError } = require("../models/my-error.model");
 
 async function mustBeAdmin(req, res, next){
+    if (req.originalUrl === '/admin/order/create' ||
+        req.originalUrl === '/admin/signin' ||
+        req.originalUrl === '/admin/signup')
+    return next();
+
     const token = req.cookies.auth;
     verify(token)
     .then(user => {

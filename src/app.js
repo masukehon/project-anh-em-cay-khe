@@ -1,9 +1,9 @@
 const express = require("express");
 const json = require("body-parser");
+const cookieParser = require('cookie-parser')
 const mustBeAdmin = require("./helpers/mustBeAdmin");
 const getOrdersNotSeen = require("./helpers/getOrdersNotSeen");
-var cookieParser = require('cookie-parser')
-
+const getNameAdmin = require("./helpers/getNameAdmin");
 
 const app = express();
 const { siteRouter } = require("./controllers/site/site.route");
@@ -17,12 +17,11 @@ const { imgUMRouter } = require("./controllers/admin/img-user-mannual.route");
 const { cateRouter } = require("./controllers/admin/category.route");
 const { dynamicRouter } = require("./controllers/admin/dynamic.route");
 
+getOrdersNotSeen()
+    .then(orders => app.locals.ordersNotSeen = orders)
+    .catch(error => console.log(error));
 
-
-// app.engine('.ejs', require('ejs').__express);
-// app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
 app.use(express.static("public"));
 app.use(json());
 app.use(cookieParser());
@@ -32,6 +31,7 @@ app.use((req,res,next)=>{
     };
     next();
 });
+<<<<<<< HEAD
 
 
 
@@ -42,11 +42,19 @@ getOrdersNotSeen()
     })
     .catch(error => console.log(error));
 
+=======
+>>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 app.use('/', siteRouter);
-app.use('/admin', employeeRouter);
 
 app.use(mustBeAdmin);
+<<<<<<< HEAD
 
+=======
+app.use(getNameAdmin);
+app.use('/admin', employeeRouter);
+// app.use(mustBeAdmin);
+// app.use(getNameAdmin);
+>>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 app.use('/admin/exp', expRouter);
 app.use('/admin/role',roleRouter);
 app.use('/admin/dynamic', dynamicRouter);
