@@ -35,6 +35,7 @@
         <label>image Primary:</label>
         <input type="file" name="imagePrimary">
       </div>
+
       <div class="form-group" 
       <% if(!checkHide(dynamicForm,"imageSub")){ %>
         hidden
@@ -42,6 +43,15 @@
       >
         <label>image Sub:</label>
         <input type="file" name="imageSub">
+      </div>
+
+      <div class="form-group" 
+      <% if(!checkHide(dynamicForm,"highlight")){ %>
+        hidden
+      <%}%>
+      >
+        <label>Highlight :</label>
+        <input type="checkbox" name="isHighLight">
       </div>
       <button type="submit" class="btn btn-success">Insert</button>
     </form>
