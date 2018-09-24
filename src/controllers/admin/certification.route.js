@@ -6,7 +6,7 @@ const certiRouter = Router();
 
 certiRouter.get('/', (req, res) => {
   CertificationService.getAll()
-  .then(cer=> res.render('admin/master',{cer, page:"formCertificationGet"}))
+  .then(cer=> res.render('admin/master',{cer, page:"formCertificationGet", messages: req.flash('info')}))
   .catch(res.onError);
 });
 
@@ -38,6 +38,7 @@ certiRouter.post('/update', (req, res, next) => {
   
   CertificationService.update(req.idUser, req, res)
   .then(cer =>{
+    req.flash('info', 'Flash is back!')
     res.redirect('back');
   })
   .catch(res.onError);

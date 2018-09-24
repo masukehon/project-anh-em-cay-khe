@@ -31,9 +31,9 @@ dynamicRouter.get('/remove/:id', (req,res)=> {
     .catch(res.onError);
 })
 //form update
-dynamicRouter.get('/frUpdate/:id',(req,res)=> {
+dynamicRouter.get('/:dynamicName/frUpdate/:id',(req,res)=> {
     DynamicService.getOne(req.params.id)
-    .then(feat=>res.render('admin/master',{feat,page:"formDynamicUpdate"}))
+    .then(feat=>res.render('admin/master',{feat,page:"formDynamicUpdate",dynamicForm:req.params.dynamicName}))
     .catch(res.onError);
 })
 dynamicRouter.post('/update/:id',(req, res)=> {
