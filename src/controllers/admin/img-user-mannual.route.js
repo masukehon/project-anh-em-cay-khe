@@ -4,9 +4,9 @@ const mustBeAdmin = require("../../helpers/mustBeAdmin");
 const { ImgUserMannual } = require("../../models/image-user-manual.model");
 const imgUMRouter = Router();
 
-imgUMRouter.get('/', (req, res) => {
-  res.render('test');
-});
+// imgUMRouter.get('/', (req, res) => {
+//   res.render('test');
+// });
 
 // imgUMRouter.post('/create', (req, res) => {
 //   ImgUserMannualService.create()
@@ -16,11 +16,10 @@ imgUMRouter.get('/', (req, res) => {
 //   .catch(res.onError);
 // });
 
-imgUMRouter.get('/getall', (req, res) => {
-  ImgUserMannual.find({})
-  .then(imgUM =>{
-    res.status(200).send({success:true, imgUM});
-  })
+//load form va lay tat ca
+imgUMRouter.get('/', (req, res) => {
+  ImgUserMannualService.getAll()
+  .then(imgUM=>res.render('admin/master', { imgUM, page:"formImgUM" }))
   .catch(res.onError);
 });
 
@@ -36,7 +35,7 @@ imgUMRouter.post('/update', (req, res, next) => {
   
   ImgUserMannualService.update(req.idUser, req, res)
   .then(imgUM =>{
-    res.status(200).send({success:true, imgUM});
+      res.redirect('back');
   })
   .catch(res.onError);
 });

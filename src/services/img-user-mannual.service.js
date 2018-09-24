@@ -8,9 +8,9 @@ class ImgUserMannualService {
     // static async create() {
     //         return (new ImgUserMannual()).save();
     //     }
-    static async update(idUser = '5ba3d0e93430442304c5576d', req, res) {
+    static async update(idUser, req, res) {
         return new Promise((resolve, reject) => {
-            upload.array("image")(req, res, async error => {
+            upload.array("images")(req, res, async error => {
                 const admin = await Employee.findById(idUser);
 
                 if (!admin)
@@ -20,15 +20,18 @@ class ImgUserMannualService {
                 const imgs = req.files;
                 const imgUserMan = await ImgUserMannual.findOne({});
                 imgUserMan.images = [];
-                if(imgs) {
+                if (imgs.length == 0)return reject(new ServerError("IMAGES_INVALID", 400));
                     imgs.forEach(img => {
                         imgUserMan.images.push(img.filename);
                     });
-                }
+                
                 const updateImgUserMan = imgUserMan.save();
                 return resolve(updateImgUserMan);
             });
         });
+    }
+    static async getAll(){
+        return ImgUserMannual.findOne({});
     }
 }
 module.exports= { ImgUserMannualService };
