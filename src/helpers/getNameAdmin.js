@@ -3,8 +3,7 @@ const { Employee } = require("../models/employee.model");
 
 async function getNameAdmin(req, res, next){
     if (req.originalUrl === '/admin/order/create' ||
-        req.originalUrl === '/admin/signin' ||
-        req.originalUrl === '/admin/signup')
+        req.originalUrl === '/admin/signin')
     return next();
     
     const admin = await Employee.findById(req.idUser);

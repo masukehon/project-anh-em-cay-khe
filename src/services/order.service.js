@@ -2,11 +2,18 @@ const { ServerError } = require("../models/my-error.model");
 const { Order } = require("../models/order.model");
 const { checkObjectId } = require("../helpers/checkObjectId");
 const getOrdersNotSeen = require("../helpers/getOrdersNotSeen");
+const dateFormat = require('dateformat');
 
 class OrderService {
 
     static async getAll() {
-        return Order.find({}).sort({ requiredDate: -1 });
+        return Order.find({}).sort({ requiredDate: -1 })
+            .then(orders => {
+                orders.forEach(order => {
+                    order.dateToString = dateFormat(order.requiredDate, "mmmm dS, yyyy, h:MM:ss TT");
+                });
+                return orders;
+            });
     }
 
     static async getOne(req) {
@@ -21,9 +28,9 @@ class OrderService {
             order.isSeen = true;
             const saveOrder = await order.save();
             if (saveOrder) {
-                getOrdersNotSeen()
-                    .then(orders => req.app.locals.ordersNotSeen = orders)
-                    .catch(error => console.log(error));
+                // getOrdersNotSeen()
+                //     .then(orders => req.app.locals.ordersNotSeen = orders)
+                //     .catch(error => console.log(error));
                 return saveOrder;
             }
         }
@@ -37,9 +44,9 @@ class OrderService {
         const order = new Order({ customerName: name, email, phone, isSeen: false, requiredDate: Date.now() });
         const saveOrder = await order.save();
         if (saveOrder) {
-            getOrdersNotSeen()
-                .then(orders => req.app.locals.ordersNotSeen = orders)
-                .catch(error => console.log(error));
+            // getOrdersNotSeen()
+            //     .then(orders => req.app.locals.ordersNotSeen = orders)
+            //     .catch(error => console.log(error));
             return saveOrder;
         }
     }

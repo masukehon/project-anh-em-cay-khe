@@ -17,10 +17,13 @@ const { imgUMRouter } = require("./controllers/admin/img-user-mannual.route");
 const { cateRouter } = require("./controllers/admin/category.route");
 const { dynamicRouter } = require("./controllers/admin/dynamic.route");
 
-getOrdersNotSeen()
-    .then(orders => app.locals.ordersNotSeen = orders)
-    .catch(error => console.log(error));
+// getOrdersNotSeen(req, res, next)
+//     .then(orders => app.locals.ordersNotSeen = orders)
+//     .catch(error => console.log(error));
 
+//nếu chỉ như hàm ở trên. thì nó chỉ chạy duy nhất 1 lần.
+//như ở dưới với middleware thì với mỗi request lên. nó sẽ chạy.
+app.use(getOrdersNotSeen);
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(json());

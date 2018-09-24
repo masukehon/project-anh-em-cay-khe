@@ -37,7 +37,7 @@ class EmployeeService {
         return Employee.find({}).populate('role');
     }
 
-    static async updateInfo(idUser = '5ba1f1421958eb1950ee3c0a', name, address, phone) {
+    static async updateInfo(idUser, name, address, phone) {
         checkObjectId(idUser);
         if(!name)
             throw new ServerError("NAME_INVALID",404);
@@ -53,7 +53,7 @@ class EmployeeService {
         return newEmployee;
     }
 
-    static async updatePassword(idUser = '5ba1f1421958eb1950ee3c0a', oldPassword, newPassword) {
+    static async updatePassword(idUser, oldPassword, newPassword) {
         checkObjectId(idUser);
         if(!newPassword) throw new ServerError("NEW_PASSWORD_INVALID",400);
         
@@ -67,7 +67,8 @@ class EmployeeService {
         user.password = newPasswordHash;
         return user.save();
     }
-    static async updateRole(idUserCurrent = '5ba3d0e93430442304c5576d', idUserUpdate, nameRoleSlug) {
+    
+    static async updateRole(idUserCurrent, idUserUpdate, nameRoleSlug) {
         
         checkObjectId(idUserCurrent, idUserUpdate);
 

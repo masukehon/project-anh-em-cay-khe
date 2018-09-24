@@ -1,18 +1,21 @@
+
+
 <h3>List order</h3>
     <table id="datatable" class="table table-striped table-bordered">
         <thead>
             <tr>
-                   <th>order id </th>
-                   <th>customer</th>
-                   <th>email</th>
-                   <th>phone</th>
-                   <th>Require dDate</th>
-                   <th>seen</th>
+                   <th>Order id </th>
+                   <th>Customer</th>
+                   <th>Email</th>
+                   <th>Phone</th>
+                   <th>Required date</th>
+                   <th>Seen</th>
                </tr>
            </thead>
            <tbody>
+               
                 <%orders.forEach(o=>{
-                    const { _id,customerName, email, phone, isSeen, requiredDate } = o;
+                    const { _id,customerName, email, phone, isSeen, dateToString } = o;
                     %>  
                 <tr>
                    <% if (isSeen) { %>
@@ -23,18 +26,26 @@
                     <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= customerName%></a></th>
                     <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= email%></a></th>
                     <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= phone%></a></th>
-                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= requiredDate%></a></th>
-                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;">chưa xem</a></th>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;"><%= dateToString%></a></th>
+                    <th><a href="/admin/order/<%= _id%>" style="color:red;	text-decoration: underline;">Đánh dấu đã xem</a></th>
                   <% } %>   
 
                    <% if (isSeen) { %>
                     <td><%= customerName%></td>
                     <td><%= email%></td>
                     <td><%= phone%></td>   
-                    <th><%= requiredDate%></th> 
-                    <th><a>đã xem</a></th>
+                    <th><%= dateToString%></th> 
+                    <th><a>Đã xem</a></th>
                     <% } %>
                 </tr> 
                    <% }) %>             
            </tbody>
     </table>
+    <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                $('#datatable').dataTable( {
+                    "ordering": false
+                    } );
+            });
+    </script>

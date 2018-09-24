@@ -7,6 +7,7 @@ orderRouter.get('/', (req, res, next) => {
     OrderService.getAll()
     .then(orders => {
         // res.status(200).send({success:true, orders});
+        // console.log(orders);
         res.render('admin/master', {orders, page: "formOrderGet"});
     })
     .catch(res.onError);

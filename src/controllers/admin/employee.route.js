@@ -11,20 +11,19 @@ employeeRouter.get('/signin', (req, res, next) => {
     res.render('admin/login');
 });
 
-employeeRouter.post('/signup', (req, res, next) => {
+employeeRouter.post('/signup', mustBeBoss, (req, res, next) => {
     const { name, email, password, address, phone } = req.body;
     EmployeeService.SignUp(name, email, password, address, phone)
         .then(employee =>res.redirect('back'))
         .catch(res.onError);
 });
+
 employeeRouter.post('/signin', (req, res, next) => {
     const { email, password } = req.body;
     EmployeeService.SignIn(email, password, res)
         .then(employee => res.redirect('/admin'))
         .catch(res.onError);
 });
-
-
 
 employeeRouter.get('/', (req, res, next) => {
     res.render('admin/master', { page: "dashboard" });//get infor
@@ -58,7 +57,7 @@ employeeRouter.get('/all', mustBeBoss, (req, res, next) => {
 });
 
 //lay role chuyen vao form insert
-employeeRouter.get('/all/formInsert', mustBeBoss, (req, res, next) => {
+employeeRouter.get('/signup', mustBeBoss, (req, res, next) => {
     res.render('admin/master', { page: "formEmployeeInsert" });
 });
 

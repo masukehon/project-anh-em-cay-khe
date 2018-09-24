@@ -145,8 +145,10 @@
                                     <span class="badge bg-green"><%=ordersNotSeen.length%></span>
                                 </a>
                                 <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                    <%ordersNotSeen.slice(-3).forEach(orders => {
-                                        const {customerName, email, phone, distanceTime} = orders;
+                                    <% 
+                                    var length = ordersNotSeen.length > 3 ? 3 : ordersNotSeen.length;
+                                    for(let i = 0; i < length; i++){
+                                        const {customerName, email, phone, distanceTime} = ordersNotSeen[i];
                                         %>
 
                                     <li>
@@ -161,7 +163,7 @@
                                             </span>
                                         </a>
                                     </li>
-                                    <%})%>
+                                    <%}%>
                                     <li>
                                         <div class="text-center">
                                             <a href="admin/order">
@@ -239,6 +241,7 @@
 
      <!-- jQuery -->
      <!-- Datatables -->
+     
      <script src="admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
      <script src="admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
      <script src="admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
