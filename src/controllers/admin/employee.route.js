@@ -32,14 +32,14 @@ employeeRouter.get('/', (req, res, next) => {
 employeeRouter.post('/update/info', (req, res) => {
     const { name, address, phone } = req.body;
     EmployeeService.updateInfo(req.idUser, name, address, phone)
-        .then(employee => res.send({ sucess: true, employee }))
+        .then(employee => res.redirect('back'))
         .catch(res.onError);
 });
 
 employeeRouter.post('/update/password', (req, res) => {
-    const { oldPassword, newPassword } = req.body;
-    EmployeeService.updatePassword(req.idUser, oldPassword, newPassword)
-        .then(employee => res.send({ sucess: true, employee }))
+    const { oldPassword, newPassword, againPassword } = req.body;
+    EmployeeService.updatePassword(req.idUser, oldPassword, newPassword, againPassword)
+        .then(employee => res.redirect('back'))
         .catch(res.onError);
 });
 
@@ -72,5 +72,17 @@ employeeRouter.get('/logout', (req, res, next) => {
     .then(result => res.redirect('/admin/login'))
     .catch(res.onError);
 });
+employeeRouter.get('/remove/:id',(req,res)=>{
+    EmployeeService.remove(req.params.id)
+    .then(epl=>res.redirect('back'))
+    .catch(res.onError);
+});
+//form thong tin va cap nhat thong tin
+employeeRouter.get('/infor',(req,res)=>{
+    EmployeeService.getByIdEpl(req.idUser)
+    .then(epl=>res.render('admin/master',{epl,page:"formStaff_InforGet"}))
+    .catch(res.onError);
+})
+
 
 module.exports = { employeeRouter };
