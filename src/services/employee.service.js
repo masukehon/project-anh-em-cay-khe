@@ -34,10 +34,11 @@ class EmployeeService {
     }
 
     static async getAll() {
-        return Employee.find({}).populate('role');
+        const roleNhanVien = (await Role.findOne({slug: "nhan-vien"}))._id;
+        return Employee.find({role:roleNhanVien}).populate('role');
     }
 
-    static async updateInfo(idUser = '5ba1f1421958eb1950ee3c0a', name, address, phone) {
+    static async updateInfo(idUser, name, address, phone) {
         checkObjectId(idUser);
         if(!name)
             throw new ServerError("NAME_INVALID",404);
@@ -53,7 +54,7 @@ class EmployeeService {
         return newEmployee;
     }
 
-    static async updatePassword(idUser = '5ba1f1421958eb1950ee3c0a', oldPassword, newPassword) {
+    static async updatePassword(idUser, oldPassword, newPassword,againPassword) {
         checkObjectId(idUser);
         if(!newPassword) throw new ServerError("NEW_PASSWORD_INVALID",400);
         
@@ -61,8 +62,8 @@ class EmployeeService {
         if(!user) throw new ServerError("CANNOT_FIND_EMPLOYEE",404);
 
         const checkOldPass = await compare(oldPassword, user.password);
-        if(!checkOldPass) throw new ServerError("CANNOT_FIND_EMPLOYEE",404);
-        
+        if(!checkOldPass) throw new ServerError("BAD_OLD_PASSWORD_",404);
+        if(againPassword !=newPassword) throw new ServerError("BAD_AGAIN_PASSWORD")
         const newPasswordHash = await hash(newPassword, 8);
         user.password = newPasswordHash;
         return user.save();
@@ -101,6 +102,12 @@ class EmployeeService {
     // static async getByID(id){
     //     return (await Employee.findById(id).populate('role')).role.name;
     // }
+    static async remove(id){
+        return Employee.findByIdAndRemove(id);
+    }
+    static async getByIdEpl(id){
+        return Employee.findById(id);
+    }
 }
 
 module.exports = { EmployeeService };

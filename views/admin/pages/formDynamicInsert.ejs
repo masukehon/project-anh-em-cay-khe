@@ -1,24 +1,45 @@
+<% include('../functionCheck') %>
 <div class="container">
     <h3>Insert <%=dynamicForm%></h3>
     <hr>
     <form action="/admin/dynamic/<%=dynamicForm%>/create" enctype="multipart/form-data" method="POST">
-      <div class="form-group">
+      <div class="form-group"  
+      <% if(!checkHide(dynamicForm,"title")){ %>
+        hidden
+      <%}%>
+    >
         <label>Title:</label>
         <input type="text" class="form-control" placeholder="Enter Title" name="title">
       </div>
-      <div class="form-group">
+      <div class="form-group"
+        <% if(!checkHide(dynamicForm,"content")){ %>
+          hidden
+        <%}%>
+      >
         <label>Content:</label>
         <textarea  class="form-control" name="content" id="" cols="50" rows="8"></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group"
+      <% if(!checkHide(dynamicForm,"unit")){ %>
+        hidden
+      <%}%>
+      >
         <label>Unit:</label>
         <input type="number" class="form-control" placeholder="Enter Unit" name="unit">
       </div>
-      <div class="form-group">
+      <div class="form-group"
+      <% if(!checkHide(dynamicForm,"imagePri")){ %>
+        hidden
+      <%}%>
+      >
         <label>image Primary:</label>
         <input type="file" name="imagePrimary">
       </div>
-      <div class="form-group">
+      <div class="form-group" 
+      <% if(!checkHide(dynamicForm,"imageSub")){ %>
+        hidden
+      <%}%>
+      >
         <label>image Sub:</label>
         <input type="file" name="imageSub">
       </div>
