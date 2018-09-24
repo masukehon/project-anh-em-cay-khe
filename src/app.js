@@ -5,9 +5,6 @@ const mustBeAdmin = require("./helpers/mustBeAdmin");
 const getOrdersNotSeen = require("./helpers/getOrdersNotSeen");
 const getNameAdmin = require("./helpers/getNameAdmin");
 
-const flash = require('express-flash-notification');
-const session = require('express-session');
-
 const app = express();
 const { siteRouter } = require("./controllers/site/site.route");
 const { employeeRouter } = require("./controllers/admin/employee.route");

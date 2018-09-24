@@ -34,8 +34,15 @@ class EmployeeService {
     }
 
     static async getAll() {
-        const roleNhanVien = (await Role.findOne({slug: "nhan-vien"}))._id;
-        return Employee.find({role:roleNhanVien}).populate('role');
+        return Employee.find({}).populate({
+            path: 'role',
+            match: {
+              slug: 'nhan-vien'
+            }
+          }).then(employees => {
+              const filterEmp = employees.filter(em => em.role);
+              return filterEmp;
+          });
     }
 
     static async updateInfo(idUser, name, address, phone) {

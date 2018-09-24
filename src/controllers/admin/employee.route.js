@@ -52,7 +52,9 @@ employeeRouter.post('/update/role/:id', (req, res) => {
 
 employeeRouter.get('/all', mustBeBoss, (req, res, next) => {
     EmployeeService.getAll()
-        .then(employees => res.render('admin/master', { employees, page: "formEmployeeGet" }))
+        .then(employees => {
+            console.log(employees);
+            res.render('admin/master', { employees, page: "formEmployeeGet" })})
         .catch(error => console.log(error));
 });
 

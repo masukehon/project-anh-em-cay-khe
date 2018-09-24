@@ -1,39 +1,39 @@
 <div class="container">
     <form action="/admin/update/info" method="POST">
-        <h3>information and update information</h3>
+        <h3>Information Staff</h3>
         <div class="form-group">
             <label for="">Name</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="<%=epl.name%>">
         </div>
         <div class="form-group">
-            <label for="">phone</label>
+            <label for="">Phone</label>
             <input type="text" name="phone" class="form-control" value="<%=epl.phone%>">
         </div>
         <div class="form-group">
-            <label for="">address</label>
+            <label for="">Address</label>
             <input type="text" name="address" class="form-control" value="<%=epl.address%>">
         </div>
         <div class="form-group">
-            <label for="">email</label>
+            <label for="">Email</label>
             <input type="text" name="email" class="form-control" value="<%=epl.email%>" readonly>
         </div>
-        <button type="submit" class="btn btn-success">update information</button>
+        <button type="submit" class="btn btn-success">Update information</button>
     </form>
 </div>
 <hr>
 <div class="container">
     <form action="/admin/update/password" method="POST">
-        <h3>change password</h3>
+        <h3>Change password</h3>
         <div class="form-group">
-            <label for="">old password</label>
+            <label for="">Old password</label>
             <input type="password" name="oldPassword" class="form-control">
         </div>
         <div class="form-group">
-            <label for="">new password</label>
+            <label for="">New password</label>
             <input type="password" name="newPassword" class="form-control">
         </div>
         <div class="form-group">
-            <label for="">Enter password again</label>
+            <label for="">Confirm new password</label>
             <input type="password" name="againPassword" class="form-control">
         </div>
         <button type="submit" class="btn btn-success">Change</button>
