@@ -14,7 +14,6 @@ class DynamicService {
             }
           });
         const data = dynamics.filter(d =>  d.category && d.category.name === dynamicName);
-        
         return data;
     }
 
@@ -42,7 +41,7 @@ class DynamicService {
                 }
 
                 const { title, content, isHighLight, unit } = req.body;
-                
+                console.log(isHighLight);
                 const data = { title, content, isHighLight, unit };
                 var imagePrimary, imageSub;
                 
@@ -55,6 +54,10 @@ class DynamicService {
                 data.imagePrimary = imagePrimary;
                 data.imageSub = imageSub;
                 data.category = idCategory;
+                data.isHighLight = false;
+                if(isHighLight == "on")
+                data.isHighLight = true;
+
                 
                 const dynamic = new Dynamic(data);
                 return resolve(dynamic.save());
@@ -82,8 +85,12 @@ class DynamicService {
                 
                 const data = { title, content, isHighLight, unit };
 
-                if(req.files) {
+                data.isHighLight = false;
+                if(isHighLight == "on")
+                data.isHighLight = true;
 
+                if(req.files) {
+                    console.log('vao file');
                     var imagePrimary, imageSub;
                     if(req.files.imagePrimary)
                         imagePrimary = req.files.imagePrimary[0].filename;
@@ -95,6 +102,7 @@ class DynamicService {
                     const dynamicUpdate = await Dynamic.findByIdAndUpdate(idDynamicUpdate, data);
                     return resolve(dynamicUpdate);
                 }
+                console.log('ko vao file');
                     
                 const dynamicUpdate = await Dynamic.findByIdAndUpdate(idDynamicUpdate, data);
                 return resolve(dynamicUpdate);

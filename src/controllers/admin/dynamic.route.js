@@ -7,9 +7,9 @@ dynamicRouter.use(mustBeAdmin);
 
 dynamicRouter.get('/:dynamicName', (req, res) => {
     DynamicService.getAll(req.params.dynamicName)
-    .then(feats => {
+    .then(dyna => {
         // res.send({success: true, feat});
-        res.render('admin/master',{ feats, page:"formDynamicGet", dynamicForm: req.params.dynamicName});
+        res.render('admin/master',{ dyna, page:"formDynamicGet", dynamicForm: req.params.dynamicName});
     })
     .catch(res.onError);
 });
