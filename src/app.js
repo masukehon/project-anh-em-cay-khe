@@ -23,6 +23,7 @@ const { dynamicRouter } = require("./controllers/admin/dynamic.route");
 
 //nếu chỉ như hàm ở trên. thì nó chỉ chạy duy nhất 1 lần.
 //như ở dưới với middleware thì với mỗi request lên. nó sẽ chạy.
+
 app.use(getOrdersNotSeen);
 app.set('view engine', 'ejs');
 app.use(express.static("public"));

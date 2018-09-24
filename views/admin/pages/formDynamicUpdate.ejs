@@ -1,21 +1,57 @@
+<% include('../functionCheck') %>
 <form action="/admin/dynamic/update/<%=feat._id%>" enctype="multipart/form-data" method="POST">
-    <div class="form-group">
+  <h3>update <%=dynamicForm%></h3>
+    <div class="form-group"
+    <% if(!checkHide(dynamicForm,"title")){ %>
+      hidden
+    <%}%>
+    >
       <label>title</label>
       <input type="text" class="form-control" name="title" value="<%=feat.title%>">
+    </div>
+    <div class="form-group"
+    <% if(!checkHide(dynamicForm,"content")){ %>
+      hidden
+    <% } %>
+    >
       <label>Content</label>
       <input type="text" class="form-control"  name="content" value="<%=feat.content%>">
+    </div>
+      <div class="form-group"
+      <% if(!checkHide(dynamicForm,"unit")){ %>
+        hidden
+      <%}%>
+      >
       <label>unit</label>
       <input type="text" class="form-control" name="unit" value="<%=feat.unit%>">
       <br>
+    </div>
+    <div class="form-group"
+    <% if(!checkHide(dynamicForm,"imagePri")){ %>
+      hidden
+    <%}%>
+    >
       <label>image Primary</label>
       <img src="images/admin/<%=feat.imagePrimary%>" alt="not found" width="50px">
       <input type="file" class="form-control-file" name="imagePrimary">
       <br>
+    </div>
       <hr>
+      <div class="form-group"
+      <% if(!checkHide(dynamicForm,"imageSub")){ %>
+        hidden
+      <%}%>
+      >
       <label>image Sub</label>
       <img src="images/admin/<%=feat.imageSub%>" alt="not found" width="50px">
       <input type="file" class="form-control-file" name="imageSub">
       <br>
+    </div>
+    <div class="form-group"
+        <% if(!checkHide(dynamicForm,"highlight")){ %>
+          hidden
+        <%}%>
+    >
       <% if(feat.isHighLight){ %>
         <label class="checkbox-inline"><input type="checkbox" checked value="">highlight</label>
       <% } else { %>
@@ -23,6 +59,5 @@
       <% } %>
       <br>
     </div>
-    <br>
     <button type="submit" class="btn btn-primary mb-2">Update</button>
   </form>
