@@ -1,10 +1,5 @@
 const { ServerError } = require("../models/my-error.model");
 const { Order } = require("../models/order.model");
-<<<<<<< HEAD
-const { Employee } = require("../models/employee.model");
-const { checkObjectId } = require("./checkObjectId");
-=======
->>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 
 async function getOrdersNotSeen(){
     return Order.find({ isSeen: false })

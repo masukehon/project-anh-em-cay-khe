@@ -31,30 +31,13 @@ app.use((req,res,next)=>{
     };
     next();
 });
-<<<<<<< HEAD
-
-
-
-
-getOrdersNotSeen()
-    .then(orders => {
-        app.locals.ordersNotSeen = orders;
-    })
-    .catch(error => console.log(error));
-
-=======
->>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 app.use('/', siteRouter);
 
 app.use(mustBeAdmin);
-<<<<<<< HEAD
-
-=======
 app.use(getNameAdmin);
 app.use('/admin', employeeRouter);
 // app.use(mustBeAdmin);
 // app.use(getNameAdmin);
->>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 app.use('/admin/exp', expRouter);
 app.use('/admin/role',roleRouter);
 app.use('/admin/dynamic', dynamicRouter);

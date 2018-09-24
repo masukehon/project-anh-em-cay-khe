@@ -1,14 +1,9 @@
 const { Router } = require("express");
 const { EmployeeService } = require("../../services/employee.service");
 const mustBeAdmin = require("../../helpers/mustBeAdmin");
-<<<<<<< HEAD
-const getOrdersNotSeen = require("../../helpers/getOrdersNotSeen");
-const { RoleService } = require("../../services/role.service")
-=======
 const mustBeBoss = require("../../helpers/mustBeBoss");
 const getNameAdmin = require("../../helpers/getNameAdmin");
 
->>>>>>> 5d91696800feb9f12b16c46d6b569284d919f844
 
 const employeeRouter = Router();
 
