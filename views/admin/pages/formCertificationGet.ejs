@@ -1,8 +1,20 @@
-
 <form action="/admin/certification/update" enctype="multipart/form-data" method="POST">
     <div class="form-group">
-        <label for="">select multiple images</label>
+        <h3>Select multiple images</h3>
       <input type="file" name="images" class="form-control-file" multiple> 
     </div>
+    <br>
     <button type="submit" class="btn btn-primary mb-2">Update</button>
 </form>
+<hr>
+<h3 style="text-align: center">List image certification</h3>
+<table class="table">
+    <% var dem=1 %>
+    <%cer.images.forEach(img=>{ %>
+    <tr style="text-align: center">
+        <td>image <%=dem%></td>
+        <td><img src="/images/admin/<%=img%>" alt="" width="150px"></td>
+    </tr>
+    <%dem++%>
+    <% }) %>
+</table>

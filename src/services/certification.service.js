@@ -10,7 +10,7 @@ class CertificationService {
     // }
     static async update(idUser, req, res) {
         return new Promise((resolve, reject) => {
-            upload.array("image")(req, res, async error => {
+            upload.array("images")(req, res, async error => {
                 const admin = await Employee.findById(idUser);
                 
                 if (!admin)
@@ -20,15 +20,18 @@ class CertificationService {
                 const imgs = req.files;
                 const cer = await Certification.findOne({});
                 cer.images = [];
-                if (imgs) {
+                if (imgs.length == 0)return reject(new ServerError("IMAGES_INVALID", 400));
                     imgs.forEach(img => {
                         cer.images.push(img.filename);
                     });
-                }
+                
                 const updateCer = cer.save();
                 return resolve(updateCer);
             });
         });
+    }
+    static async getAll(){
+        return Certification.findOne();
     }
 }
 

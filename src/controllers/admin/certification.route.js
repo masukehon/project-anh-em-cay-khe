@@ -5,7 +5,9 @@ const { Certification } = require("../../models/certification.model");
 const certiRouter = Router();
 
 certiRouter.get('/', (req, res) => {
-  res.render('admin/master',{ page:"formCertificationGet"});
+  CertificationService.getAll()
+  .then(cer=> res.render('admin/master',{cer, page:"formCertificationGet"}))
+  .catch(res.onError);
 });
 
 // certiRouter.post('/create', (req, res) => {
@@ -36,7 +38,7 @@ certiRouter.post('/update', (req, res, next) => {
   
   CertificationService.update(req.idUser, req, res)
   .then(cer =>{
-    res.status(200).send({success:true, cer});
+    res.redirect('back');
   })
   .catch(res.onError);
 });

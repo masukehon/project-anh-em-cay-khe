@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { EmployeeService } = require("../../services/employee.service");
 const mustBeAdmin = require("../../helpers/mustBeAdmin");
+const getOrdersNotSeen = require("../../helpers/getOrdersNotSeen");
 const { RoleService } = require("../../services/role.service")
 
 const employeeRouter = Router();

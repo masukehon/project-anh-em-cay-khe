@@ -124,7 +124,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">John Doe
+                                   <%=ordersNotSeen.name%>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -150,8 +150,8 @@
                                         %>
 
                                     <li>
-                                        <a>
-                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <a href="admin/order">
+                                            <i class="fa fa-envelope"></i>
                                             <span>
                                                 <span><%= customerName%></span>
                                                 <span class="time"><%= distanceTime%></span>

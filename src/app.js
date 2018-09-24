@@ -32,16 +32,21 @@ app.use((req,res,next)=>{
     };
     next();
 });
+
+
+
+
 getOrdersNotSeen()
-.then(orders => {
-    app.locals.ordersNotSeen = orders;
-})
-.catch(error => console.log(error));
+    .then(orders => {
+        app.locals.ordersNotSeen = orders;
+    })
+    .catch(error => console.log(error));
 
 app.use('/', siteRouter);
 app.use('/admin', employeeRouter);
 
 app.use(mustBeAdmin);
+
 app.use('/admin/exp', expRouter);
 app.use('/admin/role',roleRouter);
 app.use('/admin/dynamic', dynamicRouter);
