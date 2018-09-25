@@ -1,38 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <base href="/">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TechNoViet</title>
-    <!-- Bootstrap -->
-    <link href="admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="admin/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
-    <!-- bootstrap-progressbar -->
-    <link href="admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link href="admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="admin/build/css/custom.min.css" rel="stylesheet">
-
-
-    <link href="admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
+   <%include includehead%>
 </head>
 <body class="nav-md">
     <div class="container body">
@@ -61,36 +30,63 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="index2.html">Dashboard2</a></li>
-                                        <li><a href="index3.html">Dashboard3</a></li>
-                                    </ul>
+                                    <a href="/admin/infor"><i class="fa fa-info-circle"></i> Information</a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-bar-chart-o"></i> Manage<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/admin/infor">Information</a></li>
-                                        <li><a href="/admin/order">Order</a></li>
-                                        <li><a href="/admin/exp">Experience</a></li>
-                                        <li><a href="/admin/all">Employess</a></li>
-                                        <li><a href="/admin/certification">Certification</a></li>
-                                        <li><a href="/admin/dynamic/feature">Feature</a></li>
+                                        <a href="/admin/all"><i class="fa fa-user"></i> Employee</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/order"><i class="fa fa-list-ul"></i> Order</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/exp">user experience</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/certification">certification</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/feature">Feature</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/technology">Technology</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/component">Component</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/introduction">Introduction</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/uses">Uses</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/product_recognition">Product recognition</a>
+                                </li>
+                                <li>
+                                        <a href="/admin/dynamic/slide">slide</a>
+                                </li>
+                                <!-- <li>
+                                    <a><i class="fa fa-bar-chart-o"></i>Manage<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu"> -->
+                                        <!-- <li><a href="/admin/order">Order</a></li> -->
+                                        <!-- <li><a href="/admin/exp">Experience</a></li> -->
+                                        <!-- <li><a href="/admin/all">Employess</a></li> -->
+                                        <!-- <li><a href="/admin/certification">Certification</a></li> -->
+                                        <!-- <li><a href="/admin/dynamic/feature">Feature</a></li>
                                         <li><a href="/admin/dynamic/technology">Technology</a></li>
                                         <li><a href="/admin/dynamic/component">Component</a></li>
                                         <li><a href="/admin/dynamic/introduction">Introduction</a></li>
-                                        <li><a href="/admin/dynamic/uses">Uses</a></li>
-                                        <li><a href="/admin/dynamic/user_manual">User manual</a></li>
-                                        <li><a href="/admin/dynamic/product_recognition">Product recognition</a></li>
-                                        <li><a href="/admin/imgUserMannual">Image user manual </a></li>                                        
-                                    </ul>
-                                </li>
+                                        <li><a href="/admin/dynamic/uses">Uses</a></li> -->
+                                        <!-- <li><a href="/admin/dynamic/user_manual">User manual</a></li> -->
+                                        <!-- <li><a href="/admin/dynamic/product_recognition">Product recognition</a></li> -->
+                                        <!-- <li><a href="/admin/imgUserMannual">Image user manual </a></li>                                         -->
+                                    <!-- </ul>
+                                </li> -->
                                 <li>
-                                    <a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                                    <a> <i class="fa fa-user-md"></i>User manual manager<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                                        <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                                        <li><a href="/admin/dynamic/user_manual">Details of usage manual</a></li>
+                                        <li><a href="/admin/imgUserMannual">Edit image</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -129,7 +125,7 @@
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="/admin/infor"> Staff information</a></li>
+                                    <li><a href="/admin/inforStaff"> Staff information</a></li>
                                     <li><a href="/admin/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                 </ul>
                             </li>
@@ -190,67 +186,6 @@
             <!-- /footer content -->
         </div>
     </div>
-    <!-- jQuery -->
-    <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <!--<script src="../vendors/fastclick/lib/fastclick.js"></script>-->
-    <!-- NProgress -->
-    <script src="admin/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="admin/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="admin/vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="admin/vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="admin/vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="admin/vendors/Flot/jquery.flot.js"></script>
-    <script src="admin/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="admin/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="admin/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="admin/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="admin/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="admin/vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-
-    <script src="admin/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="admin/vendors/moment/min/moment.min.js"></script>
-    <script src="admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="admin/build/js/custom.min.js"></script>
-
-    <!-- test search -->
-
-     <!-- jQuery -->
-     <!-- Datatables -->
-     
-     <script src="admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-     <script src="admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-     <script src="admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-     <script src="admin/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-     <script src="admin/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-     <script src="admin/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-     <script src="admin/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-     <script src="admin/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-     <script src="admin/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-     <script src="admin/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-     <script src="admin/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-     <script src="admin/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-     <script src="admin/vendors/jszip/dist/jszip.min.js"></script>
-     <script src="admin/vendors/pdfmake/build/pdfmake.min.js"></script>
-     <script src="admin/vendors/pdfmake/build/vfs_fonts.js"></script>
-     <!-- Custom Theme Scripts -->
+   <% include includeBot%>
 </body>
 </html>

@@ -17,6 +17,7 @@ class CategoryService {
         await (new Category({name: "uses"})).save();
         await (new Category({name: "user_manual"})).save();
         await (new Category({name: "product_recognition"})).save();
+        await (new Category({name: "slide"})).save();
         return true;
     }
 

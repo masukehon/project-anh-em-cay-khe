@@ -1,4 +1,9 @@
 <h3><a href="admin/signup" style="text-decoration: underline;">Add new employess</a></h3>
+<%if(messages.length !== 0){ %>
+  <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+<% } %>
+<br>
+<br>
 <div class="container">
 <table class="table">
     <thead>

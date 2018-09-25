@@ -16,7 +16,7 @@ cateRouter.get('/create', (req, res) => {
     .catch(res.onError);
 });
 
-cateRouter.delete('/remove', (req, res) => {
+cateRouter.get('/remove', (req, res) => {
     CategoryService.removeAll()
     .then(cate => res.send({success: true, cate}))
     .catch(res.onError);

@@ -1,7 +1,16 @@
 <% include('../functionCheck') %>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <h3><a href="/admin/dynamic/<%=dynamicForm%>  " style="text-decoration: underline">List <%=dynamicForm%></a></h3>
+    </li>
+    <li class="breadcrumb-item active">Insert <%=dynamicForm%></h3></li>
+</ol>
+<br>
+<%if(messages.length !== 0){ %>
+  <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+<% } %>
+<br>
 <div class="container">
-    <h3>Insert <%=dynamicForm%></h3>
-    <hr>
     <form action="/admin/dynamic/<%=dynamicForm%>/create" enctype="multipart/form-data" method="POST">
       <div class="form-group"  
       <% if(!checkHide(dynamicForm,"title")){ %>

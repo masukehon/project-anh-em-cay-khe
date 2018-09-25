@@ -1,9 +1,14 @@
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <h3><a href="admin/exp" style="text-decoration: underline">experience</a></h3>
+      <h3><a href="admin/exp" style="text-decoration: underline">List experience</a></h3>
     </li>
     <li class="breadcrumb-item active">Insert experience</li>
 </ol>
+<br>
+<%if(messages.length !== 0){ %>
+  <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+<% } %>
+<br>
    <form action="admin/exp/create" method="POST">   
           <div class="form-group">
             <label>Title:</label>

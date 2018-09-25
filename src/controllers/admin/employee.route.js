@@ -14,8 +14,18 @@ employeeRouter.get('/signin', (req, res, next) => {
 employeeRouter.post('/signup', mustBeBoss, (req, res, next) => {
     const { name, email, password, address, phone } = req.body;
     EmployeeService.SignUp(name, email, password, address, phone)
-        .then(employee =>res.redirect('back'))
-        .catch(res.onError);
+        .then(employee =>{
+            req.flash('epl', 'Sign up success');
+            res.redirect('back');
+        })
+        .catch(error => res.onError(error, null, 'epl'));
+});
+
+//lay role chuyen vao form insert
+employeeRouter.get('/signup', mustBeBoss, (req, res, next) => {
+    // res.render('admin/master', { page: "formEmployeeInsert" });
+    res.render('admin/master',
+    {page:"formEmployeeInsert", messages: req.flash('epl')});
 });
 
 employeeRouter.post('/signin', (req, res, next) => {
@@ -32,15 +42,21 @@ employeeRouter.get('/', (req, res, next) => {
 employeeRouter.post('/update/info', (req, res) => {
     const { name, address, phone } = req.body;
     EmployeeService.updateInfo(req.idUser, name, address, phone)
-        .then(employee => res.redirect('back'))
-        .catch(res.onError);
+        .then(employee => {
+            req.flash('epl', 'update information success');
+            res.redirect('back');
+        })
+        .catch(error => res.onError(error, null, 'epl'));
 });
 
 employeeRouter.post('/update/password', (req, res) => {
     const { oldPassword, newPassword, againPassword } = req.body;
     EmployeeService.updatePassword(req.idUser, oldPassword, newPassword, againPassword)
-        .then(employee => res.redirect('back'))
-        .catch(res.onError);
+        .then(employee => {
+            req.flash('epl', 'update password success');
+            res.redirect('back');
+        })
+        .catch(error => res.onError(error, null, 'epl'));
 });
 
 employeeRouter.post('/update/role/:id', (req, res) => {
@@ -53,15 +69,13 @@ employeeRouter.post('/update/role/:id', (req, res) => {
 employeeRouter.get('/all', mustBeBoss, (req, res, next) => {
     EmployeeService.getAll()
         .then(employees => {
-            console.log(employees);
-            res.render('admin/master', { employees, page: "formEmployeeGet" })})
-        .catch(error => console.log(error));
+            res.render('admin/master',
+            { page:"formEmployeeGet", employees, messages: req.flash('epl')});
+        })
+        .catch(error => res.onError(error, null, 'epl'));
 });
 
-//lay role chuyen vao form insert
-employeeRouter.get('/signup', mustBeBoss, (req, res, next) => {
-    res.render('admin/master', { page: "formEmployeeInsert" });
-});
+
 
 // employeeRouter.get('/all/formUpdate/:id', (req, res, next) => {
 //     EmployeeService.getByID(req.params.id)
@@ -76,14 +90,19 @@ employeeRouter.get('/logout', (req, res, next) => {
 });
 employeeRouter.get('/remove/:id',(req,res)=>{
     EmployeeService.remove(req.params.id)
-    .then(epl=>res.redirect('back'))
-    .catch(res.onError);
+    .then(epl=>{
+        req.flash('epl', 'remove password success');
+        res.redirect('back');
+    })
+    .catch(error => res.onError(error, null, 'epl'));
 });
 //form thong tin va cap nhat thong tin
-employeeRouter.get('/infor',(req,res)=>{
+employeeRouter.get('/inforStaff',(req,res)=>{
     EmployeeService.getByIdEpl(req.idUser)
-    .then(epl=>res.render('admin/master',{epl,page:"formStaff_InforGet"}))
-    .catch(res.onError);
+    .then(epl=>{
+        res.render('admin/master',{page:"formStaff_InforGet",epl, messages: req.flash('epl')});
+    })
+    .catch(error => res.onError(error, null, 'epl'));
 })
 
 

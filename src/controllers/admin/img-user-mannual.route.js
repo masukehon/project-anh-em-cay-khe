@@ -19,8 +19,10 @@ const imgUMRouter = Router();
 //load form va lay tat ca
 imgUMRouter.get('/', (req, res) => {
   ImgUserMannualService.getAll()
-  .then(imgUM=>res.render('admin/master', { imgUM, page:"formImgUM" }))
-  .catch(res.onError);
+  .then(imgUM=>{
+    res.render('admin/master',{ page:"formImgUM", imgUM, messages: req.flash('imgUM')});
+  })
+  .catch(error => res.onError(error, null, 'imgUM'));
 });
 
 // certiRouter.get('/removeall', (req, res) => {
@@ -35,9 +37,10 @@ imgUMRouter.post('/update', (req, res, next) => {
   
   ImgUserMannualService.update(req.idUser, req, res)
   .then(imgUM =>{
-      res.redirect('back');
+    req.flash('imgUM', 'Update success');
+    res.redirect('back');
   })
-  .catch(res.onError);
+  .catch(error => res.onError(error, null, 'imgUM'));
 });
 
 // certiRouter.get('/',(req,res,next)=>{

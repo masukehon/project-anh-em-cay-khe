@@ -11,6 +11,8 @@ class EmployeeService {
         const employee = await Employee.findOne({email});
         if (employee)
             throw new ServerError("EMAIL_EXISTED",400);
+        if(!name||!email||!password||!address||!phone)  
+            throw new ServerError("INFORMATION_INVALID",404);
         const passHashed = await hash(password, 8);
         const roleNhanVien = await Role.findOne({slug: "nhan-vien"});
         const data = {name, email, address, phone, password: passHashed, role: roleNhanVien._id};

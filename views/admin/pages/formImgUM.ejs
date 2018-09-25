@@ -1,3 +1,7 @@
+<%if(messages.length !== 0){ %>
+    <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+<% } %>
+<br>
 <form action="/admin/imgUserMannual/update" enctype="multipart/form-data" method="POST">
     <div class="form-group">
         <h3>Select multiple images</h3>

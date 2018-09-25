@@ -13,15 +13,18 @@ const infoRouter = Router();
 infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
     .then(infor =>{
-      res.redirect('/admin/infor');
+      req.flash('infor', 'Update success');
+      res.redirect('back');
     })
-    .catch(res.onError);
+    .catch(error => res.onError(error, null, 'infor'));
 });
 
 infoRouter.get('/',(req,res,next)=>{
   InformationService.Get()
-  .then(infor=> res.render('admin/master', {infor, page: "inforUpdate"}))
-  .catch(res.onError);
+  .then(infor=> {
+    res.render('admin/master',{ page:"inforUpdate", infor, messages: req.flash('infor')});
+  })
+  .catch(error => res.onError(error, null, 'infor'));
 });
 
 
