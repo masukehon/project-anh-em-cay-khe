@@ -14,7 +14,7 @@ class CertificationService {
                 const admin = await Employee.findById(idUser);
                 
                 if (!admin)
-                    return reject(new ServerError("CANNOT_FIND_EMPLOYEE", 400));
+                    return reject(new ServerError("CANNOT_FIND_ADMIN", 400));
                 if (error)
                     return reject(new ServerError("UPLOAD_IMAGE_ERROR", 400));
                 const imgs = req.files;

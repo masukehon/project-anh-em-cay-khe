@@ -1,12 +1,22 @@
 <% include('../functionCheck') %>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <h3><a href="/admin/dynamic/<%=dynamicForm%>  " style="text-decoration: underline">List <%=dynamicForm%></a></h3>
+    </li>
+    <li class="breadcrumb-item active">update <%=dynamicForm%></h3></li>
+</ol>
+<br>
+<%if(messages.length !== 0){ %>
+  <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px"></a>Notify: <%=messages%></a></div>
+<% } %>
+<br>
 <form action="/admin/dynamic/update/<%=feat._id%>" enctype="multipart/form-data" method="POST">
-  <h3>update <%=dynamicForm%></h3>
     <div class="form-group"
     <% if(!checkHide(dynamicForm,"title")){ %>
       hidden
     <%}%>
     >
-      <label>title</label>
+      <label>Title</label>
       <input type="text" class="form-control" name="title" value="<%=feat.title%>">
     </div>
     <div class="form-group"
@@ -33,6 +43,8 @@
     >
       <label>image Primary</label>
       <img src="images/admin/<%=feat.imagePrimary%>" alt="not found" width="50px">
+      <br>
+      <br>
       <input type="file" class="form-control-file" name="imagePrimary">
       <br>
     </div>
@@ -44,6 +56,8 @@
       >
       <label>image Sub</label>
       <img src="images/admin/<%=feat.imageSub%>" alt="not found" width="50px">
+      <br>
+      <br>
       <input type="file" class="form-control-file" name="imageSub">
       <br>
     </div>

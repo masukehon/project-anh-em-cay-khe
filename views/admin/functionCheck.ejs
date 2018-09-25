@@ -4,6 +4,10 @@ checkHide = function(dynamicForm,nameRow) {
     const feature = dynamicForm === 'feature' && nameRow === 'title' ||
                     dynamicForm === 'feature' && nameRow === 'content' ||
                     dynamicForm === 'feature' && nameRow === 'imagePri';
+    
+    const slide =   dynamicForm === 'slide' && nameRow === 'title' ||
+                    dynamicForm === 'slide' && nameRow === 'content' ||
+                    dynamicForm === 'slide' && nameRow === 'imagePri';
 
     const technology = dynamicForm === 'technology' && nameRow === 'title' ||
                        dynamicForm === 'technology' && nameRow === 'content' ||
@@ -29,6 +33,6 @@ checkHide = function(dynamicForm,nameRow) {
 
     const product_recognition = dynamicForm === 'product_recognition' && nameRow === 'content';
 
-    return feature || technology || component || introduction || uses || user_manual || product_recognition;
+    return feature || slide || technology || component || introduction || uses || user_manual || product_recognition;
 }
 %>

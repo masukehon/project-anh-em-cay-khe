@@ -1,0 +1,64 @@
+<div id="contact_panel" class="mfp-hide contact-popup">
+		<div class="contact-popup-panel">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<!-- Contact form pop-up element -->
+						<div class="contactForm pop-up-form">
+							<!-- Google reCaptcha required javascript file -->
+							<script src='https://www.google.com/recaptcha/api.js'></script>
+
+							<!-- Title -->
+							<h3 class="m_title m_title_ext text-custom contact-popup-title tcolor">
+								Yêu cầu tư vấn
+							</h3>
+							<h4 class="tbk__subtitle fw-thin">
+								Chúng tôi sẽ phản hồi yêu cầu trong thời gian sớm nhất !
+							</h4>
+
+							<form action="php_helpers/_contact-process.php" method="post" class="contact_form row mt-40" enctype="multipart/form-data">
+								<div class="cf_response"></div>
+
+								<div class="col-sm-6 kl-fancy-form">
+									<input type="text" name="name" id="cf_name-pop-up" class="form-control" placeholder="Nhập Họ Và Tên" value="" tabindex="1"
+									 maxlength="35" required>
+									<label class="control-label">
+										Họ Và Tên
+									</label>
+								</div>
+
+								<div class="col-sm-12 kl-fancy-form">
+									<input type="text" name="email" id="cf_email-pop-up" class="form-control h5-email" placeholder="Địa Chỉ Email" value="" tabindex="1"
+									 maxlength="35" required>
+									<label class="control-label">
+										EMAIL
+									</label>
+								</div>
+
+								<div class="col-sm-12 kl-fancy-form">
+									<input type="number" name="subject" id="cf_subject-pop-up" class="form-control" placeholder="Nhập tiêu đề" value="" tabindex="1"
+									 maxlength="35" required>
+									<label class="control-label">
+										Số điện thoại
+									</label>
+								</div>
+
+								<div class="col-sm-12">
+									<!-- Contact form send button -->
+									<button class="btn btn-fullcolor" type="submit">
+										Send
+									</button>
+								</div>
+							</form>
+						</div>
+						<!--/ Contact form pop-up element -->
+					</div>
+					<!--/ col-md-12 col-sm-12 -->
+				</div>
+				<!--/ .row -->
+			</div>
+			<!--/ .container -->
+		</div>
+		<!--/ .contact-popup-panel -->
+		<button title="Close (Esc)" type="button" class="mfp-close">×</button>
+	</div>

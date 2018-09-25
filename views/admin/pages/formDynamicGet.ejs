@@ -1,5 +1,9 @@
 <% include('../functionCheck') %>
 
+<%if(messages.length !== 0){ %>
+    <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+<% } %>
+
 <div class="container">
     <h3><a href="/admin/dynamic/<%=dynamicForm%>/insert" style="text-decoration: underline">Insert <%=dynamicForm%></a></h3>  
 </div>

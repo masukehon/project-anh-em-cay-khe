@@ -1,3 +1,6 @@
+<%if(messages.length !== 0){ %>
+    <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+<% } %>
 <div class="container">
     <form action="/admin/update/info" method="POST">
         <h3>Information Staff</h3>

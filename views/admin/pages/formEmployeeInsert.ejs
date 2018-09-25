@@ -4,6 +4,10 @@
         </li>
         <li class="breadcrumb-item active">Add Employess</h3></li>
     </ol>
+
+   <%if(messages.length !== 0){ %>
+      <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+  <% } %>
 <div class="container">
         <hr>
         <form action="admin/signup" method="POST">

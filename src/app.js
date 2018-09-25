@@ -17,6 +17,15 @@ const { imgUMRouter } = require("./controllers/admin/img-user-mannual.route");
 const { cateRouter } = require("./controllers/admin/category.route");
 const { dynamicRouter } = require("./controllers/admin/dynamic.route");
 
+var flash = require('connect-flash-plus');
+var session = require('express-session');
+
+app.use(session({
+    secret: 'keyboard cat',
+    cookie: { maxAge: 60000 }
+  })); 
+  app.use(flash());
+
 // getOrdersNotSeen(req, res, next)
 //     .then(orders => app.locals.ordersNotSeen = orders)
 //     .catch(error => console.log(error));
@@ -30,8 +39,16 @@ app.use(express.static("public"));
 app.use(json());
 app.use(cookieParser());
 app.use((req,res,next)=>{
-    res.onError = error => {
-        res.status(error.statusCode || 500).send({success: false, message: error.message});
+    res.onError = (error, pageName, flashName) => {
+        if(error && !pageName && flashName) {
+            //route trỏ tới bị lỗi
+            req.flash(flashName, error.message);
+            res.redirect('back');
+        }
+        else if (error && pageName && !flashName) {
+            //nhận lỗi từ chính trang đó
+            res.render('admin/master',{cer, page: pageName, messages: error.message})
+        }
     };
     next();
 });
