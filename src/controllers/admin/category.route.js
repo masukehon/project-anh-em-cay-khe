@@ -16,10 +16,10 @@ cateRouter.get('/create', (req, res) => {
     .catch(res.onError);
 });
 
-// cateRouter.get('/remove', (req, res) => {
-//     CategoryService.removeAll()
-//     .then(cate => res.send({success: true, cate}))
-//     .catch(res.onError);
-// });
+cateRouter.get('/remove', (req, res) => {
+    CategoryService.removeAll()
+    .then(cate => res.send({success: true, cate}))
+    .catch(res.onError);
+});
 
 module.exports = { cateRouter };
