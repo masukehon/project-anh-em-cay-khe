@@ -10,7 +10,7 @@ certiRouter.get('/', (req, res) => {
   .catch(error => res.onError(error,"formCertificationGet",'cer'));
 });
 
-certiRouter.post('/create', (req, res) => {
+certiRouter.get('/create', (req, res) => {
   CertificationService.create()
   .then(cer =>{
     res.status(200).send({success:true, cer});

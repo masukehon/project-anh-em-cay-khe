@@ -8,6 +8,7 @@ infoRouter.get('/create',(req,res)=>{
     .then(info => res.status(200).send({success:true, info}))
     .catch(res.onError);
 });
+
 infoRouter.use(mustBeAdmin);
 
 infoRouter.post('/update', (req, res, next) => {
