@@ -41,7 +41,7 @@ class DynamicService {
                 }
 
                 const { title, content, isHighLight, unit } = req.body;
-                console.log(isHighLight);
+                
                 const data = { title, content, isHighLight, unit };
                 var imagePrimary, imageSub;
                 
@@ -89,8 +89,8 @@ class DynamicService {
                 if(isHighLight == "on")
                 data.isHighLight = true;
 
-                if(req.files) {
-                    console.log('vao file');
+                if(Object.keys(req.files).length !== 0) {
+
                     var imagePrimary, imageSub;
                     if(req.files.imagePrimary)
                         imagePrimary = req.files.imagePrimary[0].filename;
@@ -102,7 +102,6 @@ class DynamicService {
                     const dynamicUpdate = await Dynamic.findByIdAndUpdate(idDynamicUpdate, data);
                     return resolve(dynamicUpdate);
                 }
-                console.log('ko vao file');
                     
                 const dynamicUpdate = await Dynamic.findByIdAndUpdate(idDynamicUpdate, data);
                 return resolve(dynamicUpdate);

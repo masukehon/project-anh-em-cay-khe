@@ -19,16 +19,14 @@
 				</div>
 				<!--/ col-sm-12 col-md-12 -->
 
-
-				<!--/ col-sm-12 col-md-12 col-lg-6 mb-md-50 -->
+				<% data.experience.forEach(exp => { %>
 
 				<div class="col-sm-12 col-md-12 col-lg-4" style=" font-family: 'Comfortaa', cursive;">
 					<!-- Title element centered -->
 					<div class="kl-title-block text-center">
 						<!-- Title with custom font, size and weight -->
 						<h3 class="tbk__title kl-font-alt fs-m " style=" font-size:1rem;">
-							Mr Say Bee chia sẻ về sản phẩm Purtier 5th giúp hỗ trợ điều trị tai biến mạch máu
-							<br> não
+							<%= exp.title%>							
 						</h3>
 						<!--/ Title with custom font and size -->
 					</div>
@@ -36,100 +34,12 @@
 
 					<!-- Video box element iframe style -->
 					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
-						<iframe src="https://www.youtube.com/embed/fVkTl_KAyS0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-					</div>
-					<!--/ .fluid-width-video-wrapper -->
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-4">
-					<!-- Title element centered -->
-					<div class="kl-title-block text-center">
-						<!-- Title with custom font, size and weight -->
-						<h3 class="tbk__title kl-font-alt fs-m " style=" font-family: 'Comfortaa', cursive;font-size:1rem;">
-							Mr David Yeo chia sẻ
-							<br> sản phẩm nhau thai hươu purtier 5th giúp điều trị tiểu đường
-						</h3>
-						<!--/ Title with custom font and size -->
-					</div>
-					<!--/ Title element centered -->
-
-					<!-- Video box element iframe style -->
-					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
-						<iframe src="https://www.youtube.com/embed/fVkTl_KAyS0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-					</div>
-					<!--/ .fluid-width-video-wrapper -->
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-4">
-					<!-- Title element centered -->
-					<div class="kl-title-block text-center">
-						<!-- Title with custom font, size and weight -->
-						<h3 class="tbk__title kl-font-alt fs-m " style=" font-family: 'Comfortaa', cursive; font-size:1rem;">
-							Mr George Cheong chia sẻ về sản phẩm Nhau Thai Hươu Purtier giúp hồi phục xương sống
-						</h3>
-						<!--/ Title with custom font and size -->
-					</div>
-					<!--/ Title element centered -->
-
-					<!-- Video box element iframe style -->
-					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
-						<iframe src="https://www.youtube.com/embed/fVkTl_KAyS0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-					</div>
-					<!--/ .fluid-width-video-wrapper -->
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-4">
-					<!-- Title element centered -->
-					<div class="kl-title-block text-center">
-						<!-- Title with custom font, size and weight -->
-						<h3 class="tbk__title kl-font-alt fs-m "  style=" font-family: 'Comfortaa', cursive; font-size:1rem;">
-							Ms Joanne Toeh chia sẻ về sản phẩm Purtier hỗ trợ điều trị ung thư tốt như <br> nào?
-						</h3>
-						<!--/ Title with custom font and size -->
-					</div>
-					<!--/ Title element centered -->
-
-					<!-- Video box element iframe style -->
-					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
-						<iframe src="https://www.youtube.com/embed/fVkTl_KAyS0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-					</div>
-					<!--/ .fluid-width-video-wrapper -->
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-4">
-					<!-- Title element centered -->
-					<div class="kl-title-block text-center">
-						<!-- Title with custom font, size and weight -->
-						<h3 class="tbk__title kl-font-alt fs-m " style=" font-family: 'Comfortaa', cursive; font-size:1rem;">
-							Ms Tai Ah Moay Chia Sẻ Về Sản Phẩm Purtier Giúp Hồi Phục Chức Năng Xương Khớp
-						</h3>
-						<!--/ Title with custom font and size -->
-					</div>
-					<!--/ Title element centered -->
-
-					<!-- Video box element iframe style -->
-					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
-						<iframe src="https://www.youtube.com/embed/fVkTl_KAyS0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-					</div>
-					<!--/ .fluid-width-video-wrapper -->
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-4">
-					<!-- Title element centered -->
-					<div class="kl-title-block text-center">
-						<!-- Title with custom font, size and weight -->
-						<h3 class="tbk__title kl-font-alt fs-m " style=" font-family: 'Comfortaa', cursive; font-size:1rem;">
-							Tổng Thống Obama
-							<br>Nói Về Nghiên Cứu Tế Bào
-							<br>Gốc
-						</h3>
-						<!--/ Title with custom font and size -->
-					</div>
-					<!--/ Title element centered -->
-
-					<!-- Video box element iframe style -->
-					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
-						<iframe src="https://www.youtube.com/embed/fVkTl_KAyS0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+						<iframe src="https://www.youtube.com/embed/<%= exp.link%>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
 					</div>
 					<!--/ .fluid-width-video-wrapper -->
 				</div>
 
-				<!--/ col-sm-12 col-md-12 col-lg-6 -->
+				<% }) %>
 			</div>
 			<!--/ row -->
 		</div>

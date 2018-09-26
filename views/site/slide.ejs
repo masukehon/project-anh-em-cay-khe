@@ -22,202 +22,50 @@
         <!-- iOS Slider wrapper with animateme scroll efect -->
         <div class="iosSlider kl-slideshow-inner animateme" data-trans="6000" data-autoplay="1" data-infinite="true" data-when="span"
          data-from="0" data-to="0.75" data-translatey="300" data-easing="linear" style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 1; perspective: 1000px; backface-visibility: hidden; width: 1263.33px; height: 555.865px;">
+        <% data.slide.forEach( sld => {%>
             <!-- Slides -->
             <div class="kl-iosslider hideControls" style="position: relative; cursor: -webkit-grab; backface-visibility: hidden; transform: matrix(1, 0, 0, 1, -7580, 0); width: 6316.6px;">
                 <!-- Slide #1 -->
+                <div class="item iosslider__item kl-iosslider-active" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 7579, 0); backface-visibility: hidden; width: 1263.32px;">
+                    <!-- Image -->
+                    <div class="slide-item-bg" style="background-image:url(/images/admin/<%= sld.imagePrimary%>);">
+                    </div>
+                    <!--/ Image -->
+
+                    <!-- Gradient overlay -->
+                    <div class="kl-slide-overlay" style="background-color:">
+                    </div>
+                    <!-- Gradient overlay -->
+
+                    <!-- Captions container -->
+                    <div class="container kl-iosslide-caption kl-ioscaption--style3 s3ext fromleft klios-alignleft kl-caption-posv-middle">
+                        <!-- Captions animateme wrapper -->
+                        <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
+                            <!-- Main Big Title -->
+                            <h2 class="main_title has_titlebig ">
+                                <span>
+                                    <strong><%= sld.title%></strong>
+                                </span>
+                            </h2>
+                            <!-- Main Big Title -->
+
+                            <!-- Small title -->
+                            <h4 class="title_small">
+                                    <%= sld.content%>
+                                <br> 2018'S COLLECTION
+                            </h4>
+                            <!--/ Small title -->
+
+
+                        </div>
+                        <!--/ Captions animateme wrapper -->
+                    </div>
+                    <!--/ Captions container -->
+                </div>
                 <!-- /Slide #1 -->
-                <div class="item iosslider__item kl-iosslider-active" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 7579, 0); backface-visibility: hidden; width: 1263.32px;">
-                    <!-- Image -->
-                    <div class="slide-item-bg" style="background-image:url(images/sliders/iosslider_fullheight/slide1.jpg);">
-                    </div>
-                    <!--/ Image -->
-
-                    <!-- Gradient overlay -->
-                    <div class="kl-slide-overlay" style="background-color:">
-                    </div>
-                    <!-- Gradient overlay -->
-
-                    <!-- Captions container -->
-                    <div class="container kl-iosslide-caption kl-ioscaption--style3 s3ext fromleft klios-alignleft kl-caption-posv-middle">
-                        <!-- Captions animateme wrapper -->
-                        <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
-                            <!-- Main Big Title -->
-                            <h2 class="main_title has_titlebig ">
-                                <span>
-                                    <strong>PURTIER</strong>5TH
-                                </span>
-                            </h2>
-                            <!-- Main Big Title -->
-
-                            <!-- Small title -->
-                            <h4 class="title_small">
-                                FOR NEW ARRIVALS OF
-                                <br> 2018'S COLLECTION
-                            </h4>
-                            <!--/ Small title -->
-
-
-                        </div>
-                        <!--/ Captions animateme wrapper -->
-                    </div>
-                    <!--/ Captions container -->
-                </div>
-                <!-- Slide #2 -->
-                <div class="item iosslider__item kl-iosslider-active" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 7579, 0); backface-visibility: hidden; width: 1263.32px;">
-                    <!-- Image -->
-                    <div class="slide-item-bg" style="background-image:url(images/sliders/iosslider_fullheight/slide1.jpg);">
-                    </div>
-                    <!--/ Image -->
-
-                    <!-- Gradient overlay -->
-                    <div class="kl-slide-overlay" style="background-color:">
-                    </div>
-                    <!-- Gradient overlay -->
-
-                    <!-- Captions container -->
-                    <div class="container kl-iosslide-caption kl-ioscaption--style3 s3ext fromleft klios-alignleft kl-caption-posv-middle">
-                        <!-- Captions animateme wrapper -->
-                        <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
-                            <!-- Main Big Title -->
-                            <h2 class="main_title has_titlebig ">
-                                <span>
-                                    <strong>SUMMER SALE</strong> STEAM
-                                </span>
-                            </h2>
-                            <!-- Main Big Title -->
-
-                            <!-- Small title -->
-                            <h4 class="title_small">
-                                FOR NEW ARRIVALS OF
-                                <br> 2018'S COLLECTION
-                            </h4>
-                            <!--/ Small title -->
-                        </div>
-                        <!--/ Captions animateme wrapper -->
-                    </div>
-                    <!--/ Captions container -->
-                </div>
-                <!--/ Slide #2 -->
-
-                <!-- Slide #3 -->
-                <div class="item iosslider__item" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 8843, 0); backface-visibility: hidden; width: 1263.32px;">
-                    <!-- Image -->
-                    <div class="slide-item-bg" style="background-image:url(images/sliders/iosslider_fullheight/slide3.jpg);">
-                    </div>
-                    <!--/ Image -->
-
-                    <!-- Gradient overlay -->
-                    <div class="kl-slide-overlay" style="background-color:">
-                    </div>
-                    <!--/ Gradient overlay -->
-
-                    <!-- Captions container -->
-                    <div class="container kl-iosslide-caption kl-ioscaption--style4 s4ext fromleft klios-alignleft kl-caption-posv-middle">
-                        <!-- Captions animateme wrapper -->
-                        <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
-                            <!-- Main Big Title -->
-                            <h2 class="main_title has_titlebig ">
-                                <span>
-                                    <strong>WHAT ARE FRIENDS FOR?</strong>
-                                </span>
-                            </h2>
-                            <!--/ Main Big Title -->
-
-                            <!-- Big Title -->
-                            <h3 class="title_big">
-                                <strong>Tư Vấn Miễn Phí</strong> 24/7
-                            </h3>
-                            <!--/ Big Title -->
-                        </div>
-                        <!--/ Captions animateme wrapper -->
-                    </div>
-                    <!--/ Captions container -->
-                </div>
-                <!--/ Slide #3 -->
-
-                <!-- Slide #4 -->
-                <div class="item iosslider__item" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 10106, 0); backface-visibility: hidden; width: 1263.32px;">
-                    <!-- Image -->
-                    <div class="slide-item-bg" style="background-image:url(images/sliders/iosslider_fullheight/slide4.jpg);">
-                    </div>
-                    <!--/ Image -->
-
-                    <!-- Gradient overlay -->
-                    <div class="kl-slide-overlay" style="background:">
-                    </div>
-                    <!--/ Gradient overlay -->
-
-                    <!-- Captions container -->
-                    <div class="container kl-iosslide-caption kl-ioscaption--style5 fromleft klios-alignleft kl-caption-posv-middle">
-                        <!-- Captions animateme wrapper -->
-                        <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
-
-
-                            <!-- Main Big Title -->
-                            <h2 class="main_title has_titlebig">
-                                <span>
-                                    KALLYAS IS A CUTTING EDGE TEMPLATE
-                                    <br> THAT WILL
-                                    <strong>ROCK YOUR WORLD</strong>
-                                </span>
-                            </h2>
-                            <!--/ Main Big Title -->
-
-                            <!-- Big Title -->
-                            <h3 class="title_big">
-                                Plus your customers will love it!
-                            </h3>
-                            <!--/ Big Title -->
-
-                        </div>
-                        <!--/ Captions animateme wrapper -->
-                    </div>
-                    <!--/ Captions container -->
-                </div>
-                <!--/ Slide #4 -->
-
-                <!-- Slide #5 -->
-                <div class="item iosslider__item" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 11369, 0); backface-visibility: hidden; width: 1263.32px;">
-                    <!-- Image -->
-                    <div class="slide-item-bg" style="background-image:url(images/sliders/iosslider_fullheight/slide5.jpg);">
-                    </div>
-                    <!--/ Image -->
-
-                    <!-- Gradient overlay -->
-                    <div class="kl-slide-overlay" style="background:">
-                    </div>
-                    <!--/ Gradient overlay -->
-
-                    <!-- Captions container -->
-                    <div class="container kl-iosslide-caption kl-ioscaption--style5 fromleft klios-aligncenter kl-caption-posv-middle">
-                        <!-- Captions animateme wrapper -->
-                        <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
-                            <!-- Main Big Title -->
-                            <h2 class="main_title has_titlebig ">
-                                <span>
-                                    GRAND OPENING
-                                </span>
-                            </h2>
-                            <!--/ Main Big Title -->
-
-                            <!-- Big Title with custom letter spacing -->
-                            <h3 class="title_big">
-                                <span class="lt-spacing-10">
-                                    <strong>NOV</strong> 2018
-                                </span>
-                            </h3>
-                            <!--/ Big Title with custom letter spacing -->
-
-
-                        </div>
-                        <!--/ Captions animateme wrapper -->
-                    </div>
-                    <!--/ Captions container -->
-                </div>
-                <!--/ Slide #5 -->
             </div>
             <!--/ Slides -->
-
+        <% }); %>
             <!-- Navigation Controls - Prev -->
             <div class="kl-iosslider-prev" style="cursor: pointer;">
                 <!-- Arrow -->
@@ -279,3 +127,4 @@
         <div class="scrollbarContainer">
         </div>
     </div>
+ 

@@ -38,7 +38,7 @@
 						</h3>
 
 						<p>
-							70 Lý Thường Kiệt
+							<%= data.information.address%>
 						</p>
 						<h3 class="title m_title" style="font-size:20px;">
 							Liên Hệ
@@ -47,9 +47,9 @@
 						<!-- Contact details -->
 						<div class="contact-details">
 							<p>
-								<strong> 0969.996.838 </strong>
+								<strong> <%= data.information.hotline%> </strong>
 								<br> Email:
-								<a href="#">nhathuocduongtam@gmail.com</a>
+								<a href="#"><%= data.information.email%></a>
 							</p>
 						</div>
 					</div>
@@ -75,10 +75,10 @@
 						<ul class="social-icons sc--clean clearfix">
 							<li class="title">Kết nối với chúng tôi</li>
 							<li>
-								<a href="#" target="_self" class="fab fa-facebook-f" title="Facebook"></a>
+								<a href="<%= data.information.facebook%>" target="_self" class="fab fa-facebook-f" title="Facebook"></a>
 							</li>
 							<li>
-								<a href="#" target="_self" class="fab fa-instagram" title="Instagram"></a>
+								<a href="<%= data.information.instagram%>" target="_self" class="fab fa-instagram" title="Instagram"></a>
 							</li>
 							<li>
 								<a href="#" target="_self" class="fab fa-dribbble" title="Dribbble"></a>

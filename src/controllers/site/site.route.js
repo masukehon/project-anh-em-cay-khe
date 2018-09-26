@@ -1,9 +1,13 @@
 const { Router } = require("express");
+const { SiteService } = require("../../services/site.service");
 
 const siteRouter = Router();
 
 siteRouter.get('/', (req, res, next) => {
-   res.render('site/index');
+   SiteService.getAll()
+   .then(data => res.render('site/index', { data }))
+   .catch(error => console.log(error));
+   
 });
 
-module.exports = {siteRouter};
+module.exports = { siteRouter };

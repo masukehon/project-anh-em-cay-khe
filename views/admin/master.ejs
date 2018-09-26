@@ -32,7 +32,11 @@
                                 <li>
                                     <a href="/admin/infor"><i class="fa fa-info-circle"></i> Information</a>
                                 </li>
-                                <li>
+                                <li 
+                                    <% if(roleName != "boss") { %>
+                                            style="display:none"
+                                    <% } %>
+                                >
                                         <a href="/admin/all"><i class="fa fa-user"></i> Employee</a>
                                 </li>
                                 <li>

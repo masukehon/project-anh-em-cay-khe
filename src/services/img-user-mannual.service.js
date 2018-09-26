@@ -12,7 +12,6 @@ class ImgUserMannualService {
         return new Promise((resolve, reject) => {
             upload.array("images")(req, res, async error => {
                 const admin = await Employee.findById(idUser);
-
                 if (!admin)
                     return reject(new ServerError("CANNOT_FIND_EMPLOYEE", 400));
                 if (error)
@@ -23,8 +22,7 @@ class ImgUserMannualService {
                 if (imgs.length == 0)return reject(new ServerError("IMAGES_INVALID", 400));
                     imgs.forEach(img => {
                         imgUserMan.images.push(img.filename);
-                    });
-                
+                    });              
                 const updateImgUserMan = imgUserMan.save();
                 return resolve(updateImgUserMan);
             });

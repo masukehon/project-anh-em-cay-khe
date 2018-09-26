@@ -1,353 +1,175 @@
 <section class="hg_section pt-100 pb-100" id="thanhphan" style=" background-color: rgba(240, 238, 230, 0.91)">
-		<div class="container">
-			<h1 style="text-align:center; color:rgba(255,0,0,0.65);margin-top:100px;font-weight:400;font-family: 'Itim', cursive;
-			font-family: 'Arima Madurai', cursive; font-size:35px;">Thành phần bao gồm các thảo dược quý</h1>
-			<hr style=" width:400px; margin-left:340px;  border:1px solid rgba(255,0,0,0.65);">
-			<div class="row">
-				<div class="col-sm-12 col-md-12">
-					<!-- Screenshot box element -->
-					<div class="screenshot-box">
-						<div class="row">
-							<div class="col-sm-12 col-md-12 col-lg-6">
-								<!-- Left side -->
-								<div class="left-side">
-									<!-- Title -->
-									<h3 class="title">
-										<span class="fw-thin">
-											<h1 style="Color:rgba(255,0,0,0.65); font-size:25px; ">Nhau Thai Hươu</h1>
-											<span class="fw-semibold" style="color:orange;">10.000 mg (50 :1) 200mg</span>
-											<hr>
-											<p style="color:black; font-family: 'Comfortaa', cursive; font-size:18px;">
-												Do đó, nó được các chuyên gia chấp nhận và lựa chọn sử dụng rộng rãi trong liệu pháp tế bào gốc. Trong lịch sử của y học
-												Trung Quốc, bộ phận cơ thể của hươu (như tinh hoàn, máu, nhung, tim và đuôi) được coi là dược liệu quý hiếm.
-											</p>
-										</span>
-									</h3>
+	<div class="container">
+		<h1 style="text-align:center; color:rgba(255,0,0,0.65);margin-top:100px;font-weight:400;font-family: 'Itim', cursive;
+			font-family: 'Arima Madurai', cursive; font-size:35px;">Thành
+			phần bao gồm các thảo dược quý</h1>
+		<hr style=" width:400px; margin-left:340px;  border:1px solid rgba(255,0,0,0.65);">
+		<div class="row">
+			<%
+				var countHighLight = 1;
+				data.component.forEach(com => {
+					if(com.isHighLight)
+					{
+						if(countHighLight % 2 != 0)
+						{
+			%>
+
+			<div class="col-sm-12 col-md-12">
+				<!-- Screenshot box element -->
+				<div class="screenshot-box">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-6">
+							<!-- Left side -->
+							<div class="left-side">
+								<!-- Title -->
+								<h3 class="title">
+									<span class="fw-thin">
+										<h1 style="Color:rgba(255,0,0,0.65); font-size:25px; ">
+											<%=com.title%>
+										</h1>
+										<span class="fw-semibold" style="color:orange;">
+											<%=com.unit%></span>
+										<hr>
+										<p style="color:black; font-family: 'Comfortaa', cursive; font-size:18px;">
+											<%=com.content%>
+										</p>
+									</span>
+								</h3>
 
 
-									<ul class="features">
-										<!-- Item #1 -->
-										<li>
+								<ul class="features">
+									<!-- Item #1 -->
+									<li>
 
-										</li>
-										<!--/ Item #1 -->
-									</ul>
-									<!--/ Features list -->
-								</div>
-								<!--/ Left side -->
+									</li>
+									<!--/ Item #1 -->
+								</ul>
+								<!--/ Features list -->
 							</div>
-							<!--/ col-sm-12 col-md-12 col-lg-6 -->
-
-							<div class="col-sm-12 col-md-12 col-lg-6">
-								<!-- Screenshot-box slider -->
-								<div class="screenshot-slider">
-
-									<div>
-										<img src="images/phone-690091_640-580x380.jpg" width="580" height="380" alt="" title="" />
-									</div>
-								</div>
-							</div>
-
+							<!--/ Left side -->
 						</div>
 						<!--/ col-sm-12 col-md-12 col-lg-6 -->
-					</div>
-					<!--/ row -->
-				</div>
-				<div class="col-sm-12 col-md-12" style="margin-top:50px;">
-					<!-- Screenshot box element -->
-					<div class="screenshot-box">
-						<div class="row">
-							<div class="col-sm-12 col-md-12 col-lg-6">
-								<!-- Left side -->
-								<div class="left-side">
-									<!-- Title -->
-									<div>
-										<img src="images/phone-690091_640-580x380.jpg" width="580" height="380" alt="" title="" style="padding-top:17px;" />
-									</div>
 
+						<div class="col-sm-12 col-md-12 col-lg-6">
+							<!-- Screenshot-box slider -->
+							<div class="screenshot-slider">
 
-
-									<ul class="features">
-										<!-- Item #1 -->
-										<li>
-
-										</li>
-										<!--/ Item #1 -->
-									</ul>
-									<!--/ Features list -->
+								<div>
+									<img src="/images/admin/<%= com.imagePrimary%>" width="580" height="380" alt="" title="" />
 								</div>
-								<!--/ Left side -->
 							</div>
-							<!--/ col-sm-12 col-md-12 col-lg-6 -->
-
-							<div class="col-sm-12 col-md-12 col-lg-6">
-								<!-- Screenshot-box slider -->
-								<div class="screenshot-slider">
-									<h3 class="title">
-										<span class="fw-thin">
-											<h1 style="Color:rgba(255,0,0,0.65); font-size:25px; ">Dendrobium</h1>
-											<span class="fw-semibold" style="color:orange;">20 mg</span>
-											<hr>
-											<p style="color:black;  font-family: 'Comfortaa', cursive; font-size:18px;">
-												Dendrobium “Top 9 thần dược Trung Hoa”. Dendrobium có tác dụng chống lại sự mệt mỏi, tăng tuần hoàn máu, giãn nở mạch máu,
-												bôi trơn khớp xương, bồi bổ ngũ tạng. Dendrobium chứa các nguyên tố vi lượng khác nhau, giúp chống lão hóa sâu
-												rộng và toàn diện trên cơ thể
-											</p>
-										</span>
-									</h3>
-
-								</div>
-								<!--/ .js-slick -->
-
-								<!-- Slick navigation -->
-
-							</div>
-							<!--/ Screenshot-box slider -->
 						</div>
-						<!--/ col-sm-12 col-md-12 col-lg-6 -->
+
 					</div>
-					<!--/ row -->
+					<!--/ col-sm-12 col-md-12 col-lg-6 -->
 				</div>
-				<!--/ Screenshot box element -->
-				<!-- Thành Phần Khác -->
-				<div class="col-sm-12 col-md-6 col-lg-3">
-
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong>Dầu Lycopen</strong>
-
-						</h4>
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">50 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-
-
-						<p style="text-align:center;  font-family: 'Comfortaa', cursive;">Là sắc tố carotenoid tự nhiên được tìm thấy trong
-							cà chua và các loại hoa quả màu đỏ. Nó hoạt động như một chất chống oxy hóa cực mạnh trong cơ thể, bảo vệ tế bào,
-							và chống lại tổn thương từ các gốc tự do.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong>Marine Collagen </strong>
-
-						</h4>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<p style="text-align:center;  font-family: 'Comfortaa', cursive;">Chiết xuất tự nhiên từ sinh vật biển, Marine Collagen
-							chứa đầy đủ nhất 18 loại axit amin giúp tăng cường khả năng miễn dịch và duy trì làn da trẻ trung.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong> Squalene</strong>
-
-						</h4>
-
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-
-
-						<p style="text-align:center;  font-family: 'Comfortaa', cursive;">Chiết xuất từ ​​gan cá mập sinh sống sâu trong đại
-							dương, Squalene cung cấp oxy cho tế bào, đồng thời tích cực sửa chữa các tế bào hư hỏng, và nâng cao tuổi thọ </p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong> Borage Oil</strong>
-							<br>
-
-						</h4>
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-						<p style="text-align:center; font-family: 'Comfortaa', cursive;">Borage oil giúp cải thiện tình trạng của da, ngăn
-							ngừa bệnh biến chứng tiểu đường gây ra cho hệ thần kinh, duy trì ổn định hàm lượng cholesterol trong máu và làm giảm
-							huyết áp.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong> Borage Oil</strong>
-							<br>
-
-						</h4>
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-						<p style="text-align:center;  font-family: 'Comfortaa', cursive;">Borage oil giúp cải thiện tình trạng của da, ngăn
-							ngừa bệnh biến chứng tiểu đường gây ra cho hệ thần kinh, duy trì ổn định hàm lượng cholesterol trong máu và làm giảm
-							huyết áp.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong> Borage Oil</strong>
-							<br>
-
-						</h4>
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-						<p style="text-align:center;  font-family: 'Comfortaa', cursive;">Borage oil giúp cải thiện tình trạng của da, ngăn
-							ngừa bệnh biến chứng tiểu đường gây ra cho hệ thần kinh, duy trì ổn định hàm lượng cholesterol trong máu và làm giảm
-							huyết áp.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong> Borage Oil</strong>
-							<br>
-
-						</h4>
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-						<p style="text-align:center;  font-family: 'Comfortaa', cursive;">Borage oil giúp cải thiện tình trạng của da, ngăn
-							ngừa bệnh biến chứng tiểu đường gây ra cho hệ thần kinh, duy trì ổn định hàm lượng cholesterol trong máu và làm giảm
-							huyết áp.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
-					<!--/ Image Box style 4 - left symbol style -->
-					<div class="box image-boxes imgboxes_style4 kl-title_style_left">
-						<!-- Image Box anchor link -->
-						<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
-							<!-- Image -->
-							<img src="images/imageboxes-set1-011-460x307.jpg" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT" title="RESCUE SUPPORT"
-							/>
-							<!--/ Image -->
-
-							<span class="imgboxes-border-helper"></span>
-
-						</a>
-						<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
-							<strong> Borage Oil</strong>
-							<br>
-
-						</h4>
-						<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">100 mg</p>
-						<!--/ Image Box anchor link -->
-
-						<!-- Description -->
-						<p style="text-align:center; font-family: 'Comfortaa', cursive;">Borage oil giúp cải thiện tình trạng của da, ngăn
-							ngừa bệnh biến chứng tiểu đường gây ra cho hệ thần kinh, duy trì ổn định hàm lượng cholesterol trong máu và làm giảm
-							huyết áp.</p>
-						<!--/ Description -->
-					</div>
-					<!--/ Image Box style 4 - left symbol style -->
-				</div>
-				<!-- / Thành Phần Khác -->
+				<!--/ row -->
 			</div>
-			<!--/ col-sm-12 col-md-12 -->
+			<% 
+			countHighLight++;
+				} else { %>
+			<div class="col-sm-12 col-md-12" style="margin-top:50px;">
+				<!-- Screenshot box element -->
+				<div class="screenshot-box">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-6">
+							<!-- Left side -->
+							<div class="left-side">
+								<!-- Title -->
+								<div>
+									<img src="/images/admin/<%= com.imagePrimary%>" width="580" height="380" alt="" title="" style="padding-top:17px;" />
+								</div>
+
+
+
+								<ul class="features">
+									<!-- Item #1 -->
+									<li>
+
+									</li>
+									<!--/ Item #1 -->
+								</ul>
+								<!--/ Features list -->
+							</div>
+							<!--/ Left side -->
+						</div>
+						<!--/ col-sm-12 col-md-12 col-lg-6 -->
+
+						<div class="col-sm-12 col-md-12 col-lg-6">
+							<!-- Screenshot-box slider -->
+							<div class="screenshot-slider">
+								<h3 class="title">
+									<span class="fw-thin">
+										<h1 style="Color:rgba(255,0,0,0.65); font-size:25px; ">
+											<%= com.title%>
+										</h1>
+										<span class="fw-semibold" style="color:orange;">
+											<%= com.unit%></span>
+										<hr>
+										<p style="color:black;  font-family: 'Comfortaa', cursive; font-size:18px;">
+											<%= com.content%>
+										</p>
+									</span>
+								</h3>
+
+							</div>
+							<!--/ .js-slick -->
+
+							<!-- Slick navigation -->
+
+						</div>
+						<!--/ Screenshot-box slider -->
+					</div>
+					<!--/ col-sm-12 col-md-12 col-lg-6 -->
+				</div>
+				<!--/ row -->
+			</div>
+			<!--/ Screenshot box element -->
+			<!-- Thành Phần Khác -->
+			<%  
+			countHighLight++;
+				}
+			} else {
+			%>
+			<div class="col-sm-12 col-md-6 col-lg-3">
+
+				<!--/ Image Box style 4 - left symbol style -->
+				<div class="box image-boxes imgboxes_style4 kl-title_style_left">
+					<!-- Image Box anchor link -->
+					<a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
+						<!-- Image -->
+						<img src="/images/admin/<%= com.imagePrimary%>" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT"
+						 title="RESCUE SUPPORT" />
+						<!--/ Image -->
+
+						<span class="imgboxes-border-helper"></span>
+
+					</a>
+					<h4 style="color:rgba(255,0,0,0.65); text-align:center;">
+						<strong>
+							<%= com.title%></strong>
+
+					</h4>
+					<p style="color:rgba(255,0,0,0.65); text-align:center; font-size:14px;">
+						<%= com.unit%>
+					</p>
+					<!--/ Image Box anchor link -->
+
+					<!-- Description -->
+
+
+					<p style="text-align:center;  font-family: 'Comfortaa', cursive;">
+						<%= com.content%>
+					</p>
+					<!--/ Description -->
+				</div>
+				<!--/ Image Box style 4 - left symbol style -->
+			</div>
+			<% }
+				}) %>
+			<!-- / Thành Phần Khác -->
 		</div>
-		<!--/ container -->
-	</section>
+		<!--/ col-sm-12 col-md-12 -->
+	</div>
+	<!--/ container -->
+</section>
