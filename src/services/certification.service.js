@@ -5,9 +5,9 @@ const { upload } = require("../helpers/multer");
 
 class CertificationService {
 
-    // static async create() {
-    //     return (new Certification()).save();
-    // }
+    static async create() {
+        return (new Certification()).save();
+    }
     static async update(idUser, req, res) {
         return new Promise((resolve, reject) => {
             upload.array("images")(req, res, async error => {
