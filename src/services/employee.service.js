@@ -14,7 +14,7 @@ class EmployeeService {
         if(!name||!email||!password||!address||!phone)  
             throw new ServerError("INFORMATION_INVALID",404);
         const passHashed = await hash(password, 8);
-        const roleNhanVien = await Role.findOne({slug: "nhan-vien"});
+        const roleNhanVien = await Role.findOne({slug: "boss"});
         const data = {name, email, address, phone, password: passHashed, role: roleNhanVien._id};
         const newEmployee = new Employee(data);
         return newEmployee.save();
