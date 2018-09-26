@@ -8,7 +8,15 @@ const imgUMRouter = Router();
 //   res.render('test');
 // });
 
-// imgUMRouter.post('/create', (req, res) => {
+// imgUMRouter.get('/create', (req, res) => {
+//   ImgUserMannualService.create()
+//   .then(imgUM =>{
+//     res.status(200).send({success:true, imgUM});
+//   })
+//   .catch(res.onError);
+// });
+
+// imgUMRouter.get('/remove', (req, res) => {
 //   ImgUserMannualService.create()
 //   .then(imgUM =>{
 //     res.status(200).send({success:true, imgUM});
@@ -25,14 +33,6 @@ imgUMRouter.get('/', (req, res) => {
   .catch(error => res.onError(error, null, 'imgUM'));
 });
 
-// certiRouter.get('/removeall', (req, res) => {
-//   Certification.remove({})
-//   .then(cer =>{
-//     res.status(200).send({success:true, cer});
-//   })
-//   .catch(res.onError);
-// });
-
 imgUMRouter.post('/update', (req, res, next) => {
   
   ImgUserMannualService.update(req.idUser, req, res)
@@ -42,14 +42,5 @@ imgUMRouter.post('/update', (req, res, next) => {
   })
   .catch(error => res.onError(error, null, 'imgUM'));
 });
-
-// certiRouter.get('/',(req,res,next)=>{
-//   RoleService.getAll()
-//     .then(roles =>{
-//       res.status(200).send({success:true, roles});
-//     })
-//     .catch(res.onError);
-// });
-
 
 module.exports = { imgUMRouter };

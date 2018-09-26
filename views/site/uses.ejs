@@ -7,76 +7,31 @@
                     Công dụng của nhau thai hươu
                 </span>
             </h3>
-            <div class="static-content productzoom-style">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-5 mb-30">
-                        <!-- Sub-title -->
+            <div class="row">
+                <% data.uses.forEach(u => { %>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
 
-
-                        <!-- Features list -->
-                        <ul class="sc__features" style=" font-family: 'Comfortaa', cursive;">
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Hồi phục chức năng của tất cả các cơ quan trong cơ thể, làm mới cơ thể từ bên trong.
-                            </li>
-
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Nuôi trắng da từ bên trong cơ thể, hỗ trợ điều trị nám và tàn nhang, ngăn ngừa lão hóa trên da, cân bằng
-                                nội tiết cơ thể .
-                            </li>
-
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Hỗ trợ điều trị tiểu đường và biến chứng tiểu đường vượt trội .
-                            </li>
-
-                            <li>
-                                <span class="fas fa-check white-icon"></span>
-                                Cung cấp các chất dinh dưỡng thiết yếu và các thành phần chống oxy hóa mạnh, kháng viêm, giúp Phòng ngừa và hỗ trợ điều trị
-                                các bệnh mãn tính
-                            </li>
-
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Thúc đẩy quá trình trao đổi chất, tăng cường hệ miễn dịch, đồng thời cung cấp năng lượng cho cơ thế chống
-                                mệt mỏi, stress
-                            </li>
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Hỗ trợ điều trị cho bệnh nhân thoái hóa khớp, duy trì dịch ổ khớp và sụn khớp
-                            </li>
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Hạ lipid máu, hạ cholesterol, tăng cường lưu thông máu máu giúp bảo vệ hệ tuần hoàn
-                            </li>
-                            <li>
-                                <span class="fas fa-check white-icon"></span> Hỗ trợ điều trị men gan cao, người xơ gan.
-                            </li>
-                        </ul>
-                        <!--/ Features list -->
-
-
-
-                    </div>
-                    <!--/ col-sm-12 col-md-12 col-lg-5 mb-30 -->
-
-                    <div class="col-sm-12 col-md-12 col-lg-7">
-                        <!-- Screenshot with loupe element -->
-                        <div id="screenshot" class="sc__screenshot">
-                            <!-- Image container -->
-                            <div class="image">
-                                <!-- Product loupe pop-up & image -->
-                                <a class="kjq-loupe" data-lightbox="image" href="images/congdung.jpg">
+                            <!--/ Image Box style 4 - left symbol style -->
+                            <div class="box image-boxes imgboxes_style4 kl-title_style_left">
+                                <!-- Image Box anchor link -->
+                                <a class="imgboxes4_link imgboxes-wrapper" href="" target="_blank">
                                     <!-- Image -->
-                                    <img src="images/congdung.jpg" class="img-fluid" alt="Product" title="Product">
+                                    <img src="/images/admin/<%= u.imagePrimary%>" class="img-fluid imgbox_image cover-fit-img" alt="RESCUE SUPPORT"
+                                     title="RESCUE SUPPORT" />
+                                    <!--/ Image -->
+            
+                                    <span class="imgboxes-border-helper"></span>
+            
                                 </a>
-                                <!-- Product loupe pop-up & image -->
-
-                                <!-- Loupe -->
-                                <div class="sc__loupe"></div>
+            
+                                <p style="text-align:center;  font-family: 'Comfortaa', cursive;">
+                                    <%= u.content%>
+                                </p>
+                                <!--/ Description -->
                             </div>
-                            <!--/ Image container -->
+                            <!--/ Image Box style 4 - left symbol style -->
                         </div>
-                        <!--/ Screenshot with loupe element -->
-                    </div>
-                    <!--/ col-sm-12 col-md-12 col-lg-7 -->
-                </div>
-                <!--/ row -->
+                <% }) %>
             </div>
             <!--/ .productzoom-style -->
         </div>

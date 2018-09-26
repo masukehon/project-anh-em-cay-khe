@@ -28,9 +28,10 @@ class SiteService {
         const user_manual = await DynamicService.getAll('user_manual');
         const product_recognition = await DynamicService.getAll('product_recognition');
         const slide = await DynamicService.getAll('slide');
+        const dosage = await DynamicService.getAll('dosage');
 
         const data = { certification, experience, imgUM, information, feature, technology, 
-                    component, introduction, uses, user_manual, product_recognition, slide };
+                    component, introduction, uses, dosage, user_manual, product_recognition, slide };
         return data;
     }
 }

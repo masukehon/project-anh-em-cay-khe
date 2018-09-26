@@ -4,8 +4,13 @@
 <br>
 <form action="/admin/imgUserMannual/update" enctype="multipart/form-data" method="POST">
     <div class="form-group">
+<<<<<<< HEAD
         <h3>Select multiple images</h3>
       <input type="file" name="images" class="form-control-file"> 
+=======
+        <h3>Select image:</h3>
+      <input type="file" name="image" class="form-control-file"> 
+>>>>>>> 232d40651c08c167f94a35ce309cc2e47344e3f7
     </div>
     <br>
     <button type="submit" class="btn btn-primary mb-2">Update</button>
@@ -13,12 +18,8 @@
 <hr>
 <h3 style="text-align: center">List image UM</h3>
 <table class="table">
-    <% var dem=1 %>
-    <% imgUM.images.forEach( img=> { %>
     <tr style="text-align: center">
-        <td>Image <%=dem%></td>
-        <td><img src="/images/admin/<%=img%>" alt="not found" width="150px"></td>
+        <td>Image 1</td>
+        <td><img src="/images/admin/<%=imgUM.image%>" alt="not found" width="150px"></td>
     </tr>
-    <%dem++%>
-    <% }) %>
 </table>

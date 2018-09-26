@@ -28,11 +28,11 @@ checkHide = function(dynamicForm,nameRow) {
     const uses = dynamicForm === 'uses' && nameRow === 'content' ||
                  dynamicForm === 'uses' && nameRow === 'imagePri';   
 
-    const user_manual = dynamicForm === 'user_manual' && nameRow === 'content' ||
-                        dynamicForm === 'user_manual' && nameRow === 'title';
+    const user_manual = dynamicForm === 'user_manual' && nameRow === 'content';
+    const dosage = dynamicForm === 'dosage' && nameRow === 'content';
 
     const product_recognition = dynamicForm === 'product_recognition' && nameRow === 'content';
 
-    return feature || slide || technology || component || introduction || uses || user_manual || product_recognition;
+    return feature || slide || dosage || technology || component || introduction || uses || user_manual || product_recognition;
 }
 %>
