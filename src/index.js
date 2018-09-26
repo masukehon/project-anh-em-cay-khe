@@ -1,3 +1,3 @@
 require("./helpers/connectDB");
 const {app} = require("./app");
-app.listen(3000,() => console.log('Server started!!'));
+app.listen(process.env.PORT || 3000,() => console.log('Server started!!'));
