@@ -1,9 +1,7 @@
 const { Router } = require("express");
 const { DynamicService } = require("../../services/dynamic.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 const dynamicRouter = Router();
 
-dynamicRouter.use(mustBeAdmin);
 
 dynamicRouter.get('/:dynamicName', (req, res) => {
     DynamicService.getAll(req.params.dynamicName)

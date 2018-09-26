@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { CertificationService } = require("../../services/certification.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 const { Certification } = require("../../models/certification.model");
 const certiRouter = Router();
 

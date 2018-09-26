@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { CategoryService } = require("../../services/category.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 const { Category } = require("../../models/category.model");
 const cateRouter = Router();
 
