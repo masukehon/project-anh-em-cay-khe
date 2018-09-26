@@ -3,12 +3,12 @@ const { InformationService } = require("../../services/information.service");
 const mustBeAdmin = require("../../helpers/mustBeAdmin");
 
 const infoRouter = Router();
-// infoRouter.get('/create',(req,res)=>{
-//     InformationService.Create()
-//     .then(info => res.status(200).send({success:true, info}))
-//     .catch(res.onError);
-// });
-// infoRouter.use(mustBeAdmin);
+infoRouter.get('/create',(req,res)=>{
+    InformationService.Create()
+    .then(info => res.status(200).send({success:true, info}))
+    .catch(res.onError);
+});
+infoRouter.use(mustBeAdmin);
 
 infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
