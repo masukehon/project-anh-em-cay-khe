@@ -10,11 +10,11 @@ cateRouter.get('/', (req, res) => {
     .catch(res.onError);
 });
 
-// cateRouter.get('/create', (req, res) => {
-//     CategoryService.createAll()
-//     .then(cate => res.send({success: true, cate}))
-//     .catch(res.onError);
-// });
+cateRouter.get('/create', (req, res) => {
+    CategoryService.createAll()
+    .then(cate => res.send({success: true, cate}))
+    .catch(res.onError);
+});
 
 // cateRouter.get('/remove', (req, res) => {
 //     CategoryService.removeAll()
