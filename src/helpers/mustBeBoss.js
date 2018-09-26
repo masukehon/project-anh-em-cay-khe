@@ -6,7 +6,7 @@ async function mustBeBoss(req, res, next){
     if(!admin)
         throw new ServerError("CANNOT_FIND_ADMIN",404);
     if(admin.role.slug !== "boss")
-        throw new ServerError("UNAUTHORIZED",404);
+       return res.render('admin/master',{page: 'notify'})
     next();
 }
 
