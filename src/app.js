@@ -54,8 +54,8 @@ app.use((req,res,next)=>{
 });
 app.use('/', siteRouter);
 
-// app.use(mustBeAdmin);
-// app.use(getNameAdmin);
+app.use(mustBeAdmin);
+app.use(getNameAdmin);
 app.use('/admin', employeeRouter);
 
 app.use('/admin/exp', expRouter);
