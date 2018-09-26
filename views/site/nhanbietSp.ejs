@@ -58,25 +58,12 @@
 
 								<!-- Features list -->
 								<ul class="sc__features" style=" font-family: 'Comfortaa', cursive;">
-									<li>
-										<span class="fas fa-check white-icon"></span> Trên mỗi lọ sản phẩm có tem in logo CÔNG TY DƯỢC DƯƠNG TÂM đã được cục sở hữu trí tuệ bảo hộ thương hiệu
-										(loại tem vỡ, được bộ công an cấp)
-									</li>
-
-									<li>
-										<span class="fas fa-check white-icon"></span> Trên mỗi nắp nhôm của sản phẩm nhau thai hươu của chúng tôi đều dập nổi logo sản phẩm chữ PURTIER.
-									</li>
-
-									<li>
-										<span class="fas fa-check white-icon"></span> Đáy chai có dán tem QR, quý khách hàng có thể quét mã QR để đọc thông số của sản phẩm
-									</li>
-
+									<%data.product_recognition.forEach( pr=> { %>								
 									<li>
 										<span class="fas fa-check white-icon"></span>
-										Hóa đơn xuất hàng của công ty, quý khách hàng sẽ được đổi trả sản phẩm trong 14 ngày từ ngày nhận với bất cứ lỗi gì từ nhà
-										sản xuất
+										<%=pr.content%>
 									</li>
-
+									<% }) %>
 								</ul>
 								<!--/ Features list -->
 

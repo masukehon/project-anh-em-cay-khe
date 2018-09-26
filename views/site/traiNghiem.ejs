@@ -22,21 +22,23 @@
 				<% data.experience.forEach(exp => { %>
 
 				<div class="col-sm-12 col-md-12 col-lg-4" style=" font-family: 'Comfortaa', cursive;">
-					<!-- Title element centered -->
-					<div class="kl-title-block text-center">
-						<!-- Title with custom font, size and weight -->
-						<h3 class="tbk__title kl-font-alt fs-m " style=" font-size:1rem;">
-							<%= exp.title%>							
-						</h3>
-						<!--/ Title with custom font and size -->
-					</div>
-					<!--/ Title element centered -->
+					
 
 					<!-- Video box element iframe style -->
 					<div class="fluid-width-video-wrapper" style="padding-top: 75%;">
 						<iframe src="https://www.youtube.com/embed/<%= exp.link%>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
 					</div>
 					<!--/ .fluid-width-video-wrapper -->
+
+					<!-- Title element centered -->
+					<div class="kl-title-block text-center">
+							<!-- Title with custom font, size and weight -->
+							<h3 class="tbk__title kl-font-alt fs-m " style=" font-size:1rem;">
+								<%= exp.title%>							
+							</h3>
+							<!--/ Title with custom font and size -->
+						</div>
+						<!--/ Title element centered -->
 				</div>
 
 				<% }) %>
