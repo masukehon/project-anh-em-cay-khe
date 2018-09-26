@@ -15,8 +15,8 @@ employeeRouter.post('/signup', mustBeBoss, (req, res, next) => {
     const { name, email, password, address, phone } = req.body;
     EmployeeService.SignUp(name, email, password, address, phone)
         .then(employee =>{
-            req.flash('epl', 'Sign up success');
-            res.redirect('back');
+           
+            res.send({ sucess: true, employee });
         })
         .catch(error => res.onError(error, null, 'epl'));
 });
