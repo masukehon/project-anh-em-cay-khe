@@ -1,31 +1,30 @@
 <section class="hg_section bg-white pt-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <!-- Title element -->
-                    <div class="kl-title-block clearfix text-center tbk-symbol-- tbk-icon-pos--after-title">
-                        <!-- Title with kl-font-alt font, custom font size, bold style and light gray color -->
-                        <h3 class="tbk__title kl-font-alt fs-xxxl" style="color:rgba(255,0,0,0.65); font-size:30px;font-family: 'Itim', cursive;
+    <div class="container">
+        <div class="row">
+            <% data.introduction.forEach(intro => { %>
+            <div class="col-md-12 col-sm-12">
+                <!-- Title element -->
+                <div class="kl-title-block clearfix text-center tbk-symbol-- tbk-icon-pos--after-title">
+                    <!-- Title with kl-font-alt font, custom font size, bold style and light gray color -->
+                    <h3 class="tbk__title kl-font-alt fs-xxxl" style="color:rgba(255,0,0,0.65); font-size:30px;font-family: 'Itim', cursive;
             font-family: 'Arima Madurai', cursive; font-size:30px; ">
-                            Nguy cơ lão hóa và mắc các bệnh tim mạch
-                        </h3>
+                        <%= intro.title%>
+                    </h3>
 
-                        <h4 class="tbk__subtitle fw-vthin">
-                            <img src="./images/neu-khong-muon-bi-che-gia-truoc-tuoi-hay-cham-soc-da-khi-con-tre.jpg" alt="" width="300px">
-                            <p style="font-family: 'Comfortaa', cursive; font-size:1rem;">Ngày nay, khi tốc độ phát triển công nghiệp ngày
-                                <br> càng tăng, nhịp sống hối hả, chế độ ăn kiêng ,
-                                <br> những áp lực công việc, stress ,ô nhiễm môi
-                                <br> trường, cùng với đó là lối sống bia, rượu, thuốc lá .
-                                <br> Làm cho cơ thể chúng ta già đi một cách nhanh
-                                <br> chóng, đi cùng với nguy cơ mắc các bệnh mãn
-                                <br> tính như: Ung Thư, Tiểu Đường, Tim Mạch,...</p>
-                        </h4>
-                    </div>
-                    <!--/ Title element -->
+                    <h4 class="tbk__subtitle fw-vthin">
+                        <img src="/images/admin/<%= intro.imagePrimary%>" alt=""
+                            width="300px">
+                        <p style="font-family: 'Comfortaa', cursive; font-size:1rem;">
+                            <%= intro.content%>
+                        </p>
+                    </h4>
                 </div>
-                <!--/ col-md-12 col-sm-12 -->
+                <!--/ Title element -->
             </div>
-            <!--/ row -->
+            <% }) %>
+            <!--/ col-md-12 col-sm-12 -->
         </div>
-        <!--/ container -->
-    </section>
+        <!--/ row -->
+    </div>
+    <!--/ container -->
+</section>

@@ -41,7 +41,7 @@ class DynamicService {
                 }
 
                 const { title, content, isHighLight, unit } = req.body;
-                console.log(isHighLight);
+                
                 const data = { title, content, isHighLight, unit };
                 var imagePrimary, imageSub;
                 

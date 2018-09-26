@@ -1,88 +1,51 @@
 <section class="hg_section pt-100 pb-100" style="background-color:rgba(240, 238, 230, 0.91);">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-12">
-					<!-- Title element -->
-					<div class="kl-title-block text-center mb-30">
-						<!-- Title with custom size and weight -->
-						<h3 class="tbk__title fs-xxl fw-thin">
-							<span class="fw-semibold fs-xxxl fs-xs-xl tcolor" style="text-align:center; color:rgba(255,0,0,0.65);margin-top:100px;font-weight:400;font-family: 'Itim', cursive;
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+				<!-- Title element -->
+				<div class="kl-title-block text-center mb-30">
+					<!-- Title with custom size and weight -->
+					<h3 class="tbk__title fs-xxl fw-thin">
+						<span class="fw-semibold fs-xxxl fs-xs-xl tcolor" style="text-align:center; color:rgba(255,0,0,0.65);margin-top:100px;font-weight:400;font-family: 'Itim', cursive;
 							font-family: 'Arima Madurai', cursive; font-size:35px;">
-								Putier 5th vinh dự
-								<br>được trao Chứng nhận Quốc tế
-						</h3>
-						<!--/ Title -->
-					</div>
-					<!--/ Title element -->
+							Putier 5th vinh dự
+							<br>được trao Chứng nhận Quốc tế
+					</h3>
+					<!--/ Title -->
 				</div>
-				<!--/ col-sm-12 col-md-12 -->
-
-				<div class="col-sm-12 col-md-6 col-lg-4 mb-sm-30">
-					<!-- Media container alternative style with custom content (custom height .h-600) -->
-					<div class="media-container media-container--type-pb h-600">
-						<!-- Background -->
-						<div class="kl-bg-source">
-							<!-- Background image -->
-							<div class="kl-bg-source__bgimage">
-								<img src="./images/chungnhan3.jpg" alt="" width="95%">
-							</div>
-
-
-						</div>
-						<!--/ Background -->
-
-
-						<!--/ Media container alternative content - bottom style -->
-					</div>
-					<!--/ Media container alternative style with custom content (custom height .h-500) -->
-				</div>
-				<!--/ col-sm-12 col-md-6 col-lg-4 mb-sm-30 -->
-
-				<div class="col-sm-12 col-md-6 col-lg-4 mb-md-30">
-					<!-- Media container alternative style with custom content (custom height .h-600) -->
-					<div class="media-container media-container--type-pb h-600">
-						<!-- Background -->
-						<div class="kl-bg-source">
-							<!-- Background image -->
-							<div class="kl-bg-source__bgimage">
-								<img src="./images/chungnhan2.jpg" alt="" width="95%">
-							</div>
-
-
-						</div>
-						<!--/ Background -->
-
-
-						<!--/ Media container alternative content - bottom style -->
-					</div>
-					<!--/ Media container alternative style with custom content (custom height .h-500) -->
-				</div>
-				<!--/ col-sm-12 col-md-6 col-lg-4 mb-md-30 -->
-
-				<div class="col-sm-12 col-md-12 col-lg-4">
-					<!-- Media container alternative style with custom content (custom height .h-600) -->
-					<div class="media-container media-container--type-pb h-600">
-						<!-- Background -->
-						<div class="kl-bg-source">
-							<!-- Background image -->
-							<div class="kl-bg-source__bgimage">
-								<img src="./images/chungnhan1.jpg" alt="" width="95%">
-							</div>
-
-
-						</div>
-						<!--/ Background -->
-					</div>
-					<!--/ Media container alternative style with custom content (custom height .h-500) -->
-				</div>
-				<!--/ col-sm-12 col-md-12 col-lg-4 -->
+				<!--/ Title element -->
 			</div>
-			<!--/ row -->
+			<% data.certification.images.forEach(img => { %>
+
+			<div class="col-sm-12 col-md-6 col-lg-4 mb-sm-30">
+				<!-- Media container alternative style with custom content (custom height .h-600) -->
+				<div class="media-container media-container--type-pb h-600">
+					<!-- Background -->
+					<div class="kl-bg-source">
+						<!-- Background image -->
+						<div class="kl-bg-source__bgimage">
+						<img src="/images/admin/<%= img%>" alt="" width="95%">
+						</div>
+
+
+					</div>
+					<!--/ Background -->
+
+
+					<!--/ Media container alternative content - bottom style -->
+				</div>
+				<!--/ Media container alternative style with custom content (custom height .h-500) -->
+			</div>
+
+			<% }) %>
 		</div>
-		<!--/ container -->
-	</section>
-	<h3 class="tbk__title kl-font-alt fs-m " style="text-align:center;">
-		<strong style="text-align:center; color:rgba(255,0,0,0.65);margin-top:100px;font-weight:400;font-family: 'Itim', cursive;
-		font-family: 'Arima Madurai', cursive; font-size:48px; ">Lưu ý</strong>: Đây không phải là thuốc không có tác dụng thay thế thuốc chữa bệnh Hiệu quả sử dụng tuỳ theo cơ địa từng
-		người
-	</h3>
+		<!--/ row -->
+	</div>
+	<!--/ container -->
+</section>
+<h3 class="tbk__title kl-font-alt fs-m " style="text-align:center;">
+	<strong style="text-align:center; color:rgba(255,0,0,0.65);margin-top:100px;font-weight:400;font-family: 'Itim', cursive;
+		font-family: 'Arima Madurai', cursive; font-size:48px; ">Lưu
+		ý</strong>: Đây không phải là thuốc không có tác dụng thay thế thuốc chữa bệnh Hiệu quả sử dụng tuỳ theo cơ địa từng
+	người
+</h3>
