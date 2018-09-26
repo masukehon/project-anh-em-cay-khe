@@ -23,8 +23,9 @@ class DynamicService {
 
     static async create(req, res ) {
         const { dynamicName } = req.params;
-
+        console.log(dynamicName);
         const obj = await Category.findOne({name: dynamicName});
+        console.log(obj);
         const idCategory = obj._id;
         return new Promise((resolve, reject) => {
             const fieldsConfig = [
