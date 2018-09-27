@@ -33,7 +33,7 @@ app.use(session({
 //nếu chỉ như hàm ở trên. thì nó chỉ chạy duy nhất 1 lần.
 //như ở dưới với middleware thì với mỗi request lên. nó sẽ chạy.
 
-// app.use(getOrdersNotSeen);
+app.use(getOrdersNotSeen);
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(json());
@@ -54,8 +54,8 @@ app.use((req,res,next)=>{
 });
 app.use('/', siteRouter);
 
-// app.use(mustBeAdmin);
-// app.use(getNameAdmin);
+app.use(mustBeAdmin);
+app.use(getNameAdmin);
 app.use('/admin', employeeRouter);
 
 app.use('/admin/exp', expRouter);
