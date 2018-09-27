@@ -24,11 +24,12 @@ class ImgUserMannualService {
                 const imgUserMan = await ImgUserMannual.findOne({});
 
                 if (!req.file)return reject(new ServerError("IMAGES_INVALID", 400));
+
                 await uploadAWS('single',req.file,null)
                 .then(key=>{
-                    imgUserMan.image=key;
+                    imgUserMan.image = key;
                 })
-                // imgUserMan.image = req.file.filename;               
+                
                 const updateImgUserMan =imgUserMan.save();
                 return resolve(updateImgUserMan);
             });

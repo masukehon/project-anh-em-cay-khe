@@ -21,13 +21,15 @@ class CertificationService {
                 const imgs = req.files;
                 const cer = await Certification.findOne({});
                 cer.images = [];
-                if (imgs.length == 0)return reject(new ServerError("IMAGES_INVALID", 400));              
+                if (imgs.length == 0)return reject(new ServerError("IMAGES_INVALID", 400));      
+
                 await uploadAWS('array',imgs,null)
                 .then(key=>{
                     key.forEach(img => {
                         cer.images.push(img);
                     });
                 })      
+                
                 const updateCer = cer.save();
                 return resolve(updateCer);
             });
