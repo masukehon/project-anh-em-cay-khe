@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 function getDatabaseUri(){
-    if(process.env.PORT) return "mongodb://kha:123456kha@ds115283.mlab.com:15283/project-aeck";
+    if(process.env.PORT) return "mongodb://anhemcaykhe:huutien01@ds113853.mlab.com:13853/purtier";
     return "mongodb://localhost/myproject";
 }
 mongoose.connect(getDatabaseUri(),{ useNewUrlParser: true })

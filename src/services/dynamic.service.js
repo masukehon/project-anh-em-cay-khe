@@ -3,6 +3,7 @@ const { Dynamic } = require("../models/dynamic.model");
 const { Category } = require("../models/category.model");
 const { Employee } = require("../models/employee.model");
 const { upload } = require("../helpers/multer");
+const uploadAWS = require('../helpers/uploadAWS');
 
 
 class DynamicService {
@@ -47,10 +48,15 @@ class DynamicService {
                 var imagePrimary, imageSub;
                 
                 if(req.files) {
-                    if(req.files.imagePrimary){
-                        imagePrimary = req.files.imagePrimary[0].filename;}
-                    if(req.files.imageSub)
-                        imageSub = req.files.imageSub[0].filename;
+                    await uploadAWS('fields',req.files,fieldsConfig)
+                    .then(key=>{
+                        key.forEach(img => {
+                            if(img && img.varName ==="imagePrimary"){
+                                imagePrimary = img.filename}
+                            if(img && img.varName ==="imageSub")
+                                imageSub = img.filename;
+                        });
+                    })
                 }
                 data.imagePrimary = imagePrimary;
                 data.imageSub = imageSub;
@@ -91,12 +97,16 @@ class DynamicService {
                 data.isHighLight = true;
 
                 if(Object.keys(req.files).length !== 0) {
-
                     var imagePrimary, imageSub;
-                    if(req.files.imagePrimary)
-                        imagePrimary = req.files.imagePrimary[0].filename;
-                    if(req.files.imageSub)
-                        imageSub = req.files.imageSub[0].filename;
+                    await uploadAWS('fields',req.files,fieldsConfig)
+                    .then(key => {
+                        key.forEach(img=>{
+                            if(img && img.varName ==="imagePrimary"){
+                                imagePrimary = img.filename}
+                            if(img && img.varName ==="imageSub")
+                                imageSub = img.filename;
+                        });
+                    })     
                     data.imagePrimary = imagePrimary;
                     data.imageSub = imageSub;
 
