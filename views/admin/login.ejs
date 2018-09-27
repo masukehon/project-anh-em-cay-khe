@@ -20,7 +20,11 @@
     <link href="build/css/custom.min.css" rel="stylesheet">
 </head>
 <body class="login">
-    <div>
+  
+    <div> 
+         <%if(messages.length !== 0){ %>
+        <div class="container"><a class="alert-success" style="padding:15px 250px;font-size:18px">Notify: <%=messages%></a></div>
+        <% } %>
         <a class="hiddenanchor" id="signup"></a>
         <a class="hiddenanchor" id="signin"></a>
         <div class="login_wrapper">
