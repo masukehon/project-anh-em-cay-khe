@@ -29,7 +29,7 @@ employeeRouter.post('/signin', (req, res, next) => {
     const { email, password } = req.body;
     EmployeeService.SignIn(email, password, res)
         .then(employee => res.redirect('/admin'))
-        .catch(res.onError);
+        .catch(error => res.onError(error, null, 'epl'));
 });
 
 employeeRouter.get('/', (req, res, next) => {
