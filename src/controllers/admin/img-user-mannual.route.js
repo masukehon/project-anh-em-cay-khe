@@ -7,21 +7,21 @@ const imgUMRouter = Router();
 //   res.render('test');
 // });
 
-imgUMRouter.get('/create', (req, res) => {
-  ImgUserMannualService.create()
-  .then(imgUM =>{
-    res.status(200).send({success:true, imgUM});
-  })
-  .catch(res.onError);
-});
+// imgUMRouter.get('/create', (req, res) => {
+//   ImgUserMannualService.create()
+//   .then(imgUM =>{
+//     res.status(200).send({success:true, imgUM});
+//   })
+//   .catch(res.onError);
+// });
 
-imgUMRouter.get('/remove', (req, res) => {
-  ImgUserMannualService.create()
-  .then(imgUM =>{
-    res.status(200).send({success:true, imgUM});
-  })
-  .catch(res.onError);
-});
+// imgUMRouter.get('/remove', (req, res) => {
+//   ImgUserMannualService.create()
+//   .then(imgUM =>{
+//     res.status(200).send({success:true, imgUM});
+//   })
+//   .catch(res.onError);
+// });
 
 //load form va lay tat ca
 imgUMRouter.get('/', (req, res) => {

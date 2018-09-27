@@ -1,7 +1,7 @@
 const { ServerError } = require("../models/my-error.model");
 const { Information } = require("../models/information.model");
 const { Employee } = require("../models/employee.model");
-const { sign } = require("../helpers/jwt");
+const uploadAWS = require("../helpers/uploadAWS");
 const { upload } = require("../helpers/multer");
 
 class InformationService {
@@ -33,16 +33,22 @@ class InformationService {
                 return reject(new ServerError("UPLOAD_IMAGE_ERROR", 400));
 
             const { hotline, facebook, instagram, address, email } = req.body;
+            
             if (req.files) {
                 const data = { hotline, facebook, instagram, address, email };
-                const { banner, centerImage } = req.files;
 
-                if (banner)
-                    data.banner = banner[0].filename;
-                if (centerImage)
-                    data.centerImage = centerImage[0].filename;
-
-                return resolve(Information.findOneAndUpdate({}, data, { new: true }));
+                await uploadAWS('fields', req.files, fieldsConfig)
+                .then(images => {
+                    images.forEach(img => {
+                        if (img && img.varName === "banner") {
+                            data.banner = img.filename;
+                        }
+                        if (img && img.varName === "centerImage") {
+                            data.centerImage = img.filename;
+                        }
+                    });
+                    return resolve(Information.findOneAndUpdate({}, data, { new: true }));
+                });
             }
 
             const data = { hotline, facebook, instagram, address, email };

@@ -5,12 +5,12 @@ const { upload } = require("../helpers/multer");
 
 
 class ImgUserMannualService {
-    static async create() {
-            return (new ImgUserMannual()).save();
-        }
-    static async remove() {
-            return ImgUserMannual.remove();
-        }
+    // static async create() {
+    //         return (new ImgUserMannual()).save();
+    //     }
+    // static async remove() {
+    //         return ImgUserMannual.remove();
+    //     }
     static async update(idUser, req, res) {
         return new Promise((resolve, reject) => {
             upload.single("image")(req, res, async error => {

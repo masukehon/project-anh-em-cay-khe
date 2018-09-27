@@ -9,13 +9,13 @@ certiRouter.get('/', (req, res) => {
   .catch(error => res.onError(error,"formCertificationGet",'cer'));
 });
 
-certiRouter.get('/create', (req, res) => {
-  CertificationService.create()
-  .then(cer =>{
-    res.status(200).send({success:true, cer});
-  })
-  .catch(res.onError);
-});
+// certiRouter.get('/create', (req, res) => {
+//   CertificationService.create()
+//   .then(cer =>{
+//     res.status(200).send({success:true, cer});
+//   })
+//   .catch(res.onError);
+// });
 
 // certiRouter.get('/getall', (req, res) => {
 //   Certification.find({})
