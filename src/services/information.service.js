@@ -47,8 +47,9 @@ class InformationService {
                             data.centerImage = img.filename;
                         }
                     });
-                    return resolve(Information.findOneAndUpdate({}, data, { new: true }));
                 });
+
+                return resolve(Information.findOneAndUpdate({}, data, { new: true }));
             }
 
             const data = { hotline, facebook, instagram, address, email };

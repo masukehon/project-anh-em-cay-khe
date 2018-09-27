@@ -24,8 +24,4 @@ function verify(token) {
     });
 }
 
-function getToken() {
-    return `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmEzZDBhNGU5ZjI2NDAzODhmYWFlOTEiLCJuYW1lIjoiQ2FvIFZpbmggS2hhIiwiZW1haWwiOiJtYXN1a2U5NkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCR0eXdWZmJxUlFjSmxPbGEzc3BMVDNlMUpmMlA3RGlPMWduUk5LdkFDb1hwbFVZcHRub2QyYSIsIl9fdiI6MCwicm9sZSI6IjViYTNjZTRlNmJlMzc4MjMyMDM2M2Y5YiIsImlhdCI6MTUzNzUxNTM5MCwiZXhwIjoxNTM3Njg4MTkwfQ.lv1CHtEkSsrxlPUYc5vhwFtybnxn45ytboIzlPPl1Xw`;
-}
-
-module.exports = { verify, sign, getToken };
+module.exports = { verify, sign };
