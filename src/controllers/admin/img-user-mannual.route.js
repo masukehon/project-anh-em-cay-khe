@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { ImgUserMannualService } = require("../../services/img-user-mannual.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 const { ImgUserMannual } = require("../../models/image-user-manual.model");
 const imgUMRouter = Router();
 

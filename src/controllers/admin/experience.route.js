@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { ExperienceService } = require("../../services/experience.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 
 const expRouter = Router();
 

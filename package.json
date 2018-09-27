@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@mdi/font": "^2.7.94",
+    "aws-sdk": "^2.323.0",
     "bcrypt": "2.0.1",
     "body-parser": "^1.18.3",
     "connect-flash-plus": "^0.2.1",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "dateformat": "^3.0.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",

@@ -24,4 +24,4 @@ function verify(token) {
     });
 }
 
-module.exports = { verify, sign, getToken };
+module.exports = { verify, sign };

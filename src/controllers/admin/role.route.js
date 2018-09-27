@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { RoleService } = require("../../services/role.service");
 const { Employee } = require("../../models/employee.model");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 
 const roleRouter = Router();
 // infoRouter.get('/create',(req,res)=>{
@@ -9,7 +8,6 @@ const roleRouter = Router();
 //     .then(info => res.status(200).send({success:true, info}))
 //     .catch(res.onError);
 // });
-// infoRouter.use(mustBeAdmin);
 
 roleRouter.post('/create', (req, res, next) => {
     const { name } = req.body;

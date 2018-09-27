@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { CertificationService } = require("../../services/certification.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 const { Certification } = require("../../models/certification.model");
 const certiRouter = Router();
 
@@ -10,13 +9,13 @@ certiRouter.get('/', (req, res) => {
   .catch(error => res.onError(error,"formCertificationGet",'cer'));
 });
 
-certiRouter.get('/create', (req, res) => {
-  CertificationService.create()
-  .then(cer =>{
-    res.status(200).send({success:true, cer});
-  })
-  .catch(res.onError);
-});
+// certiRouter.get('/create', (req, res) => {
+//   CertificationService.create()
+//   .then(cer =>{
+//     res.status(200).send({success:true, cer});
+//   })
+//   .catch(res.onError);
+// });
 
 // certiRouter.get('/getall', (req, res) => {
 //   Certification.find({})

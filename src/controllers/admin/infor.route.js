@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { InformationService } = require("../../services/information.service");
-const mustBeAdmin = require("../../helpers/mustBeAdmin");
 
 const infoRouter = Router();
 infoRouter.get('/create',(req,res)=>{
@@ -8,8 +7,6 @@ infoRouter.get('/create',(req,res)=>{
     .then(info => res.status(200).send({success:true, info}))
     .catch(res.onError);
 });
-
-infoRouter.use(mustBeAdmin);
 
 infoRouter.post('/update', (req, res, next) => {
     InformationService.Update(req,res)
