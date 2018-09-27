@@ -8,7 +8,7 @@ async function getNameAdmin(req, res, next){
     
     const admin = await Employee.findById(req.idUser).populate('role');
     if(!admin)
-        throw new ServerError("CANNOT_FIND_ADMIN",404);
+    res.redirect('/admin/signin');
     req.app.locals.adminName = admin.name;
     req.app.locals.roleName = admin.role.slug;
     next();
