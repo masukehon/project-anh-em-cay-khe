@@ -4,8 +4,9 @@ const mustBeBoss = require("../../helpers/mustBeBoss");
 
 const employeeRouter = Router();
 
+//view login
 employeeRouter.get('/signin', (req, res, next) => {
-    res.render('admin/login');
+    res.render('admin/login',{ messages: req.flash('epl')});
 });
 
 employeeRouter.post('/signup', mustBeBoss, (req, res, next) => {
