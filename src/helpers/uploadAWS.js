@@ -56,7 +56,7 @@ async function uploadAWS(name, file, fields){ //file = req.file
                     const objectParams = { Bucket: BUCKET_NAME, Key, Body: file[varName][i].buffer, ACL: 'public-read' };
                     const uploadPromise = new AWS.S3({ apiVersion: '2006-03-01' }).putObject(objectParams).promise();
                     arrPromise.push(uploadPromise);
-                    const obj = { varName: varName, filename:Key};
+                    const obj = { varName, filename:Key};
                     arrKey.push(obj);
                 }
             }
