@@ -749,8 +749,10 @@ var KallyasConfig = {
 // Form Validation & Send Mail code
 	if(typeof($('.contactForm form, .contactForm.pop-up-form form')) != 'undefined') {
 		$.each($('.contactForm form, .contactForm.pop-up-form form'), function(index, el) {
+			
 			var cform = $(el),
 				cResponse = $('<div class="cf_response"></div>');
+			
 			cform.prepend(cResponse);
 			cform.h5Validate();
 
@@ -763,8 +765,9 @@ var KallyasConfig = {
 						cform.serialize(),
 						function(data){
 							cResponse.html(data).fadeIn('fast');
-							if(data.match('success') != null) {
+							if(data.success) {
 								cform.get(0).reset();
+								$('#messageContactForm').show();
 							}
 						}
 					); // end post

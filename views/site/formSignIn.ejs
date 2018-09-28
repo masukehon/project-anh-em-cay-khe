@@ -16,7 +16,7 @@
 								Chúng tôi sẽ phản hồi yêu cầu trong thời gian sớm nhất !
 							</h4>
 
-							<form action="/admin/order/create" method="post" class="contact_form row mt-40">
+							<form action="/admin/order/create" id="contact_form" method="post" class="contact_form row mt-40">
 								<div class="cf_response"></div>
 
 								<div class="col-sm-6 kl-fancy-form">
@@ -48,6 +48,7 @@
 									<button class="btn btn-fullcolor" type="submit">
 										Send
 									</button>
+									<p id="messageContactForm" style="display: none; margin-top:15px;">Gửi yêu cầu thành công</p>
 								</div>
 							</form>
 						</div>
@@ -62,3 +63,13 @@
 		<!--/ .contact-popup-panel -->
 		<button title="Close (Esc)" type="button" class="mfp-close">×</button>
 	</div>
+	<!-- <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
+	<script>
+		$(document).ready(() => {
+			$('#contact_form button').click(() => {
+				$('#contact_form').submit();
+				$('#contact_form').hide();
+			})
+		});
+		
+	</script> -->
