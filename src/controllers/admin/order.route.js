@@ -23,7 +23,7 @@ orderRouter.get('/:id', (req, res, next) => {
 orderRouter.post('/create', (req, res, next) => {
     const {name, email, phone} = req.body;
     OrderService.Create(name, email, phone, req)
-    .then(orders => res.status(200).send({success:true, orders}))
+    .then(orders => res.send({success:true, orders}))
     .catch(res.onError);
 });
 
